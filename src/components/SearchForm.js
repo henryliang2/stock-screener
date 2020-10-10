@@ -7,13 +7,13 @@ const SearchForm = (props) => {
   const [industry, setIndustry] = useState('');
   const [marketCap, setMarketCap] = useState('');
   const [dividendYield, setDividendYield] = useState('');
-  const [forwardPE, setForwardPE] = useState('');
+  const [trailingPE, setTrailingPE] = useState('');
 
   useEffect(() => { // update query options whenever a state is changed
-    const string = [sector, industry, marketCap, dividendYield, forwardPE]
+    const queryStr = [sector, industry, marketCap, dividendYield, trailingPE]
       .filter(criteria => criteria) // only added to string if criteria exists (ie. truthy)
       .join(',');
-    props.setQueryOptions(string);
+    props.setQueryOptions(queryStr);
   })
 
   return (
@@ -195,7 +195,6 @@ const SearchForm = (props) => {
       </select>
       </div>
       <div className='searchform__field'>
-
         <label  htmlFor="market-cap">Market Cap</label>
         <select name='Market Cap' id='market-cap' value={ marketCap } onChange={(e) => setMarketCap(e.target.value)}>
         <option defaultValue=''>Any</option>
@@ -208,7 +207,6 @@ const SearchForm = (props) => {
       </select>
       </div>
       <div className='searchform__field'>
-
         <label htmlFor="dividend-yield">Dividend Yield</label>
         <select name='Dividend Yield' id='dividend-yield' value={ dividendYield } onChange={(e) => setDividendYield(e.target.value)}>
         <option defaultValue="">Any</option>
@@ -230,32 +228,32 @@ const SearchForm = (props) => {
       </div>
       <div className='searchform__field'>
 
-        <label htmlFor="forward-pe">Forward P/E</label>
-        <select name='Forward P/E' id='forward-pe' value={ forwardPE } onChange={(e) => setForwardPE(e.target.value)}>
+        <label htmlFor="trailing-pe">Trailing P/E</label>
+        <select name='Trailing P/E' id='trailing-pe' value={ trailingPE } onChange={(e) => setTrailingPE(e.target.value)}>
         <option defaultValue="">Any</option>
-        <option value="fa_fpe_low">Low (&lt;15)</option>
-        <option value="fa_fpe_profitable">Profitable (&gt;0)</option>
-        <option value="fa_fpe_high">High (&gt;50)</option>
-        <option value="fa_fpe_u5">Under 5</option>
-        <option value="fa_fpe_u10">Under 10</option>
-        <option value="fa_fpe_u15">Under 15</option>
-        <option value="fa_fpe_u20">Under 20</option>
-        <option value="fa_fpe_u25">Under 25</option>
-        <option value="fa_fpe_u30">Under 30</option>
-        <option value="fa_fpe_u35">Under 35</option>
-        <option value="fa_fpe_u40">Under 40</option>
-        <option value="fa_fpe_u45">Under 45</option>
-        <option value="fa_fpe_u50">Under 50</option>
-        <option value="fa_fpe_o5">Over 5</option>
-        <option value="fa_fpe_o10">Over 10</option>
-        <option value="fa_fpe_o15">Over 15</option>
-        <option value="fa_fpe_o20">Over 20</option>
-        <option value="fa_fpe_o25">Over 25</option>
-        <option value="fa_fpe_o30">Over 30</option>
-        <option value="fa_fpe_o35">Over 35</option>
-        <option value="fa_fpe_o40">Over 40</option>
-        <option value="fa_fpe_o45">Over 45</option>
-        <option value="fa_fpe_o50">Over 50</option>
+        <option value="fa_pe_low">Low (&lt;15)</option>
+        <option value="fa_pe_profitable">Profitable (&gt;0)</option>
+        <option value="fa_pe_high">High (&gt;50)</option>
+        <option value="fa_pe_u5">Under 5</option>
+        <option value="fa_pe_u10">Under 10</option>
+        <option value="fa_pe_u15">Under 15</option>
+        <option value="fa_pe_u20">Under 20</option>
+        <option value="fa_pe_u25">Under 25</option>
+        <option value="fa_pe_u30">Under 30</option>
+        <option value="fa_pe_u35">Under 35</option>
+        <option value="fa_pe_u40">Under 40</option>
+        <option value="fa_pe_u45">Under 45</option>
+        <option value="fa_pe_u50">Under 50</option>
+        <option value="fa_pe_o5">Over 5</option>
+        <option value="fa_pe_o10">Over 10</option>
+        <option value="fa_pe_o15">Over 15</option>
+        <option value="fa_pe_o20">Over 20</option>
+        <option value="fa_pe_o25">Over 25</option>
+        <option value="fa_pe_o30">Over 30</option>
+        <option value="fa_pe_o35">Over 35</option>
+        <option value="fa_pe_o40">Over 40</option>
+        <option value="fa_pe_o45">Over 45</option>
+        <option value="fa_pe_o50">Over 50</option>
       </select>
       </div>
 

@@ -44,11 +44,22 @@ a {
 }
 
 .profile__industry {
+  line-height: 1.1rem;
   font-family: inherit;
   font-weight: 300;
   font-size: 1rem;
   color: #aaa;
   display: block;
+}
+
+.profile__mktCap {
+  line-height: 1.1rem;
+  font-family: inherit;
+  font-weight: 300;
+  font-size: 1rem;
+  color: #aaa;
+  display: block;
+  margin-bottom: 12px;
 }
 
 .profile__symbol {
@@ -93,10 +104,6 @@ a {
   max-height: 100%;
   object-fit: contain;
   border-radius: 6px;
-}
-
-.profile__industry {
-  margin-bottom: 12px;
 }
 
 .profile__desc {

@@ -13,7 +13,7 @@ const Fundamentals = (props) => {
     let mktCapStr = '';
     if (mktCapStrLength >= 13) mktCapStr = (props.mktCap / 1000000000000).toFixed(2) + ' Trillion'
     else if (mktCapStrLength >= 10) mktCapStr = (props.mktCap / 1000000000).toFixed(2) + ' Billion'
-    else if (mktCapStrLength >= 7) mktCapStr = (props.mktCap / 1000000000).toFixed(2) + ' Million'
+    else if (mktCapStrLength >= 7) mktCapStr = (props.mktCap / 1000000).toFixed(2) + ' Million'
     else mktCapStr = props.mktCap.toString();
     setMarketCap(mktCapStr);
 

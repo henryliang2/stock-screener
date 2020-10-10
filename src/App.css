@@ -26,18 +26,13 @@
   text-align: center;
 }
 
-.profile__header {
-  display: inline-block;
-  margin-left: 24px;
-  max-height: 120px;
-}
-
 .profile__industry {
   font-family: inherit;
   font-weight: 300;
   font-size: 1rem;
   color: #aaa;
   display: block;
+  text-align: center;
 }
 
 .profile__symbol {
@@ -45,6 +40,7 @@
   font-weight: 300;
   font-size: 1rem;
   display: block;
+  text-align: center;
   color: #aaa;
   margin-bottom: 12px;
 }
@@ -55,9 +51,9 @@
   align-items: center;
   width: 120px;
   height: 120px;
+  margin: auto;
   background: white;
   border-radius: 6px;
-  border: 1px solid gray;
 }
 
 .profile__image > img {

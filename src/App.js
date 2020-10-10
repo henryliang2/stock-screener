@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import SearchForm from './components/SearchForm';
 import Navigation from './components/Navigation';
 import Profiles from './components/Profiles';
@@ -60,19 +60,17 @@ const App = () => {
 
       <Navigation />
 
-      <button onClick={ () => console.log(queryOptions) }> queryOptions</button>
-      <button onClick={ console.log(profiles) }>profiles</button>
-
       <Router>
         <Switch>
+
           <Route exact path="/">
-
             <SearchForm setQueryOptions={ setQueryOptions } runApiCalls={ runApiCalls } />
-
             <Profiles profiles={ profiles }/>
           </Route>
-
-          <Route path="/company/:id" children={ <Company profiles={ profiles }/>} />
+          
+          <Route path="/company/:id" children={ 
+            <Company profiles={ profiles }/>
+          }/>
 
         </Switch>
       </Router>

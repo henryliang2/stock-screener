@@ -36,8 +36,6 @@ const Company = (props) => {
     dateOld = dateOld.toISOString().slice(0, 10);
     const dateQuery = `&from=${dateOld}&to=${dateCurr}`
 
-    console.log(dateQuery)
-
     const proxy = 'https://cors-anywhere.herokuapp.com/';
 
     fetch(`${proxy}https://finnhub.io/api/v1/company-news?symbol=${companyProfile.symbol}${dateQuery}`, {
@@ -63,9 +61,7 @@ const Company = (props) => {
           <div className='company__price'>{ companyProfile.price }</div>
           <div className='company__priceChange' style={
               {color: priceChange[1] === '+' ? 'green' : 'red'}
-            }>
-              { priceChange }
-          </div>
+            }>{ priceChange }</div>
         </div>
         <div className='fundamentals'>
           <div className='fundamentals__container'>
@@ -80,6 +76,12 @@ const Company = (props) => {
             <div className='fundamentals__label'>Avg Volume</div>
             <div className='fundamentals__value'>{ companyProfile.volAvg }</div>
           </div>
+          { companyProfile.lastDiv !== 0 &&
+          <div className='fundamentals__container'>
+            <div className='fundamentals__label'>Last Dividend</div>
+            <div className='fundamentals__value'>${ companyProfile.lastDiv } per share</div>
+          </div>
+          }
         </div>
       </div>
 
@@ -90,6 +92,7 @@ const Company = (props) => {
 
           <div>Sector: { companyProfile.sector }</div>
           <div>Industry: { companyProfile.industry }</div>
+          <div>IPO Date: { companyProfile.ipoDate }</div>
           <div>CEO: { companyProfile.ceo }</div>
           
         </div>

@@ -8,8 +8,13 @@
 
 .company__header {
   display: flex;
+  justify-content: space-between;
   padding: 24px;
   margin-bottom: 12px;
+}
+
+.company__leftcol {
+  display: flex;
 }
 
 .company__image {
@@ -37,6 +42,10 @@
 
 .company__description {
   font-family: 'Heebo', 'Arial', 'sans-serif';
+  padding: 24px;
+}
+
+.company__news {
   padding: 24px;
 }
 
@@ -71,7 +80,14 @@
   grid-template-columns: 1fr 1fr;
 }
 
+.fundamentals {
+  justify-self: flex-end;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
 .fundamentals__container {
+  font-family: 'Heebo', 'Arial', 'sans-serif';
   display: inline-block;
   margin: 0 24px;
 }

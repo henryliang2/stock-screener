@@ -80,6 +80,10 @@
   grid-template-columns: 1fr 1fr;
 }
 
+.company__info-line {
+  margin-top: 12px;
+}
+
 .fundamentals {
   justify-self: flex-end;
   display: grid;
@@ -90,6 +94,10 @@
   font-family: 'Heebo', 'Arial', 'sans-serif';
   display: inline-block;
   margin: 0 24px;
+}
+
+.tooltip {
+  font-size: 1.2rem;
 }
 
 .article {

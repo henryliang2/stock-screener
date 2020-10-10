@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300&display=swap');
+
+.company {
+  margin: auto;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.company__header {
+  display: flex;
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+}
+
+.company__image {
+  width: 120px;
+  height: 120px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.company__image > img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+.company__headerinfo {
+  font-family: 'Heebo', 'Arial', 'sans-serif';
+  margin-left: 48px;
+  display: inline-block;
+  padding-top: 12px;
+}
+
+.company__description {
+  font-family: 'Heebo', 'Arial', 'sans-serif';
+  padding: 24px;
+}
+
+.company__name {
+  font-family: inherit;
+  font-size: 2.6rem;
+}
+
+.company__symbol {
+  font-family: inherit;
+  font-size: 1.2rem;
+  color: #888;
+  display: inline-block;
+}
+
+.company__price {
+  font-family: inherit;
+  font-size: 1.2rem;
+  display: inline-block;
+  margin-left: 48px;
+}
+
+.company__priceChange {
+  font-family: inherit;
+  font-size: 1.2rem;
+  display: inline-block;
+  margin-left: 6px;
+}

@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300&display=swap');
+
+option {
+  font-family: 'Heebo', 'Arial', 'sans-serif';
+  font-size: 1rem;
+}
+
+.searchform {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1000px;
+  margin: auto;
+}
+
+label {
+  font-family: 'Heebo', 'Arial', 'sans-serif';
+  font-size: 1.1rem;
+  display: block;
+  color: #888;
+}
+
+.searchform__field {
+  display: inline-block;
+  margin: 24px 48px;
+}

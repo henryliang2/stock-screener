@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300&display=swap');
+
+
+.profile__container {
+  width: 90vw;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.profile {
+  padding: 24px;
+  margin: 24px;
+  font-family: 'Heebo', 'Arial', 'Helvetica', 'sans-serif';
+  background: white;
+  border: 1px solid gray;
+  border-radius: 6px;
+}
+
+.profile__name {
+  font-family: inherit;
+  font-weight: 300;
+  font-size: 1.2rem;
+  margin-top: 12px;
+  display: block;
+  text-align: center;
+}
+
+.profile__header {
+  display: inline-block;
+  margin-left: 24px;
+  max-height: 120px;
+}
+
+.profile__industry {
+  font-family: inherit;
+  font-weight: 300;
+  font-size: 1rem;
+  color: #aaa;
+  display: block;
+}
+
+.profile__symbol {
+  font-family: inherit;
+  font-weight: 300;
+  font-size: 1rem;
+  display: block;
+  color: #aaa;
+  margin-bottom: 12px;
+}
+
+.profile__image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 120px;
+  background: white;
+  border-radius: 6px;
+  border: 1px solid gray;
+}
+
+.profile__image > img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+.profile__industry {
+  margin-bottom: 12px;
+}
+
+.profile__desc {
+  font-family: inherit;
+  font-size: 0.9rem;
+  border-top: 4px solid turquoise;
+  padding-top: 12px;
+  max-height: 240px;
+}
+
+.profile__link {
+  text-align: center;
+  color: turquoise;
+  font-size: 2rem;
+}

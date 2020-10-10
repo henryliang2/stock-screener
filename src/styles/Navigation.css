@@ -1,0 +1,20 @@
+.nav {
+  width: 100%;
+  min-height: 40px;
+  background-color: #111b30;
+}
+
+.nav__container {
+  margin: auto;
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav__logo {
+  font-family: 'Heebo', 'Arial', 'sans-serif';
+  font-size: 1.2rem;
+  color: white;
+  margin-top: 6px;
+}

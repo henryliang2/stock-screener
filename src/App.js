@@ -1,5 +1,6 @@
 import React, { useState } from 'react'; // eslint-disable-next-line
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Landing from './components/Landing';
 import SearchForm from './components/SearchForm';
 import Navigation from './components/Navigation';
 import Profiles from './components/Profiles';
@@ -9,7 +10,7 @@ import './App.css';
 
 const App = () => {
 
-  const [profiles, setProfiles] = useState(dummyState); // use [] in production
+  const [profiles, setProfiles] = useState([]);
 
   const [queryOptions, setQueryOptions] = useState('');
 
@@ -24,8 +25,6 @@ const App = () => {
       const data = await jsonData.json();
   
       setProfiles(data);
-  
-      console.log(data)
     }
 
     const getCompanies = async (initialValue = 1) => {
@@ -62,8 +61,8 @@ const App = () => {
 
       <Router>
         <Switch>
-
           <Route exact path="/">
+            <Landing />
             <SearchForm setQueryOptions={ setQueryOptions } runApiCalls={ runApiCalls } />
             <Profiles profiles={ profiles }/>
           </Route>

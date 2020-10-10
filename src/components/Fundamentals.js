@@ -38,7 +38,7 @@ const Fundamentals = (props) => {
       </div>
       <div className='fundamentals__container'>
         <div className='fundamentals__label'>
-          Avg Daily Volume <Tooltip title={<span className='tooltip'>'Average Volume is the average number of shares of this company traded per day'</span>} arrow><a href='https://www.investopedia.com/terms/a/averagedailytradingvolume.asp'><HelpOutlineIcon fontSize={'inherit'} /></a></Tooltip>
+          Avg Volume <Tooltip title={<span className='tooltip'>'Average Volume is the average number of shares of this company traded per day'</span>} arrow><a href='https://www.investopedia.com/terms/a/averagedailytradingvolume.asp'><HelpOutlineIcon fontSize={'inherit'} /></a></Tooltip>
         </div>
         <div className='fundamentals__value'>{ avgVolume }</div>
       </div>

@@ -12,15 +12,20 @@ export const ProfileContext = React.createContext(null);
 
 const App = () => {
 
-  const [profiles, setProfiles] = useState(dummyState);
+  const [profiles, setProfiles] = useState([]);
 
   const [queryOptions, setQueryOptions] = useState('');
+
+  const [initialValue, setInitialValue] = useState(1);
 
   const runApiCall = () => {
     fetch('http://localhost:3001/search', {
       method: 'POST',
       headers: { 'Content-Type' : 'application/json'},
-      body: JSON.stringify({ "queryOptions" : queryOptions })
+      body: JSON.stringify({ 
+        "queryOptions" : queryOptions, 
+        "initialValue" : initialValue
+      })
     })
     .then(jsonData => jsonData.json())
     .then(data => { setProfiles(data) })
@@ -39,8 +44,16 @@ const App = () => {
             </Route>
 
             <Route path='/search'>
-              <SearchForm setQueryOptions={ setQueryOptions } runApiCall={ runApiCall } />
-              <Profiles />
+              <SearchForm 
+                setQueryOptions={ setQueryOptions } 
+                setInitialValue={ setInitialValue }
+                runApiCall={ runApiCall } 
+                />
+              <Profiles 
+                initialValue={ initialValue }
+                setInitialValue={ setInitialValue }
+                runApiCall={ runApiCall }
+                />
             </Route>
             
             <Route path="/company/:id" children={ 

@@ -58,6 +58,12 @@ const Profiles = (props) => {
             );
           })
         }
+
+        <button onClick={ () => { 
+          props.setInitialValue(props.initialValue + 20);
+          props.runApiCall();
+        }}>Next Page</button>
+
       </div>
   );
 }

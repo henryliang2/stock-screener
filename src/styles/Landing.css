@@ -1,12 +1,21 @@
+.landing {
+  width: 100%;
+  background-color: #111b30;
+}
+
 .landing__container {
-  width: 90vw;
+  width: 100%;
   max-width: 1200px;
   height: 90vh;
+
   margin: auto;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
   justify-content: center;
   align-items: center;
-  font-family: 'Heebo', 'Arial', 'sans-serif';
+  font-family: 'Titillium Web', 'Heebo', 'Arial', 'Helvetica', 'sans-serif';
+  color: white;
 }
 
 .landing__title {
@@ -15,4 +24,28 @@
 
 .landing__desc {
   font-size: 1.8rem;
+}
+
+.landing__image > img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.landing__signin {
+  display: inline-block;
+  min-width: 180px;
+  min-height: 48px;
+  background: white;
+  color: #222;
+  border-radius: 6px;
+  text-align: center;
+  font-family: inherit;
+  font-size: 1.1rem;
+  line-height: 48px;
+  margin: 24px 24px 0 0;
+}
+
+.landing__signin:hover {
+  transition: all 0.2s ease;
+  background: #ccc;
 }

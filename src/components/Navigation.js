@@ -6,7 +6,7 @@ const Navigation = () => {
   return (
     <div className='nav'>
       <div className='nav__container'>
-        <div className='nav__logo'>StockScreener</div>
+        <div className='nav__logo'>StockProfiler</div>
         <div className='nav__links'></div>
       </div>
     </div>

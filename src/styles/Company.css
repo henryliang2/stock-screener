@@ -9,8 +9,9 @@
 .company__header {
   display: flex;
   justify-content: space-between;
-  padding: 24px;
-  margin-bottom: 12px;
+  margin: 24px;
+  padding-left: 24px;
+  border-left: 2px solid turquoise;
 }
 
 .company__leftcol {
@@ -44,11 +45,11 @@
 .company__description {
   font-family: 'Titillium Web', 'Heebo', 'Arial', 'Helvetica', 'sans-serif';
   font-weight: 300;
-  padding: 24px;
+  padding-right: 48px;
 }
 
 .company__news {
-  padding: 24px;
+  padding-right: 48px;
 }
 
 .company__name {

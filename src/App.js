@@ -14,45 +14,15 @@ const App = () => {
 
   const [queryOptions, setQueryOptions] = useState('');
 
-  const runApiCalls = () => {
-
-    let count = 0; // number of total results
-    let tickers = [];
-
-    const getCompanyData = async (tickers) => {
-      const array = tickers.join(',');
-      const jsonData = await fetch(`https://financialmodelingprep.com/api/v3/profile/${array}?apikey=${process.env.REACT_APP_FMP_API_KEY}`);
-      const data = await jsonData.json();
-  
-      setProfiles(data);
-    }
-
-    const getCompanies = async (initialValue = 1) => {
-
-      const proxy = 'https://cors-anywhere.herokuapp.com/'
-      const response = await fetch(`${proxy}https://finviz.com/screener.ashx?v=111&f=${queryOptions}&r=${initialValue}`);
-      const html = await response.text();
-      const parser = new DOMParser();
-      const doc = parser.parseFromString(html, "text/html");
-
-      const htmlElements = Array.from(doc.getElementsByClassName('screener-link-primary'));
-      const countString = Array.from(doc.getElementsByClassName('count-text'))[0].textContent.split(' ')[1];
-      count = parseInt(countString);
-
-      htmlElements.forEach(node => {
-        tickers.push(node.textContent);
-      })
-
-      if (count > 40) count = 40
-
-      if (tickers.length < count) getCompanies(initialValue + 20)
-      else getCompanyData(tickers)
-
-    }
-
-    getCompanies();
-
-  }
+  const runApiCall = () => {
+    fetch('http://localhost:3001/search', {
+      method: 'POST',
+      headers: { 'Content-Type' : 'application/json'},
+      body: JSON.stringify({ "queryOptions" : queryOptions })
+    })
+    .then(jsonData => jsonData.json())
+    .then(data => { setProfiles(data) })
+  };
 
   return (
     <React.Fragment>
@@ -63,7 +33,10 @@ const App = () => {
         <Switch>
           <Route exact path="/">
             <Landing />
-            <SearchForm setQueryOptions={ setQueryOptions } runApiCalls={ runApiCalls } />
+          </Route>
+
+          <Route path='/search'>
+            <SearchForm setQueryOptions={ setQueryOptions } runApiCall={ runApiCall } />
             <Profiles profiles={ profiles }/>
           </Route>
           

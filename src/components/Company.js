@@ -30,25 +30,17 @@ const Company = (props) => {
 
   // fetch news articles from Finnhub API
   useEffect(() => {
-    // set a date query for the past 8 months
-    const dateCurr = new Date().toISOString().slice(0, 10);
-    let dateOld = new Date();
-    dateOld.setMonth(dateOld.getMonth() - 8);
-    dateOld = dateOld.toISOString().slice(0, 10);
-    const dateQuery = `&from=${dateOld}&to=${dateCurr}`
-
-    const proxy = 'https://cors-anywhere.herokuapp.com/';
-
-    fetch(`${proxy}https://finnhub.io/api/v1/company-news?symbol=${companyProfile.symbol}${dateQuery}`, {
-      method: 'GET',
-      headers: { 'X-Finnhub-Token' : process.env.REACT_APP_FINNHUB_API_KEY }
+    fetch('http://localhost:3001/companynews', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ "ticker": symbol})
     })
     .then(jsonData => jsonData.json())
-    .then(articles => {
-      const returnArray = articles.slice(0, 9);
-      setNewsArticles(returnArray);
-    })
-  }, [companyProfile])
+    .then(data => { 
+      setNewsArticles(data.newsArray)
+    });
+
+  }, [])
   
   return (
     <div className='company'>

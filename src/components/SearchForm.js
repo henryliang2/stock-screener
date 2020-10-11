@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'; // eslint-disable-next-line
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import './../styles/SearchForm.css'
 
 const SearchForm = (props) => {
@@ -19,7 +20,7 @@ const SearchForm = (props) => {
   return (
     <form 
       className='searchform'      
-      onSubmit={(e) => { e.preventDefault(); props.runApiCalls()}}
+      onSubmit={(e) => { e.preventDefault(); props.runApiCall(); }}
       type='submit' >
 
       <div className='searchform__field'>

@@ -8,9 +8,11 @@ import Company from './components/Company';
 import dummyState from './dummy';
 import './App.css';
 
+export const ProfileContext = React.createContext(null);
+
 const App = () => {
 
-  const [profiles, setProfiles] = useState([]);
+  const [profiles, setProfiles] = useState(dummyState);
 
   const [queryOptions, setQueryOptions] = useState('');
 
@@ -28,22 +30,23 @@ const App = () => {
     <React.Fragment>
 
       <Navigation />
-
+      
       <Router>
         <Switch>
-          <Route exact path="/">
-            <Landing />
-          </Route>
+          <ProfileContext.Provider value={ profiles }>
+            <Route exact path="/">
+              <Landing />
+            </Route>
 
-          <Route path='/search'>
-            <SearchForm setQueryOptions={ setQueryOptions } runApiCall={ runApiCall } />
-            <Profiles profiles={ profiles }/>
-          </Route>
-          
-          <Route path="/company/:id" children={ 
-            <Company profiles={ profiles }/>
-          }/>
-
+            <Route path='/search'>
+              <SearchForm setQueryOptions={ setQueryOptions } runApiCall={ runApiCall } />
+              <Profiles />
+            </Route>
+            
+            <Route path="/company/:id" children={ 
+              <Company />
+            }/>
+          </ProfileContext.Provider>
         </Switch>
       </Router>
 

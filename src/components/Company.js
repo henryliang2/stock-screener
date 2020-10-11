@@ -1,9 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react'; // eslint-disable-next-line
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import { ProfileContext } from './../App'
 import Fundamentals from './Fundamentals';
 import './../styles/Company.css'
 
 const Company = (props) => {
+
+  const profiles = useContext(ProfileContext);
 
   let { id } = useParams();
   const symbol = id;
@@ -14,7 +18,7 @@ const Company = (props) => {
 
   // extract current company profile from prop (which is an array of all companies)
   useEffect(() => {
-    props.profiles.forEach(profile => {
+    profiles.forEach(profile => {
       if (Object.values(profile).includes(symbol)) {
         setCompanyProfile(profile);
 
@@ -44,6 +48,7 @@ const Company = (props) => {
   
   return (
     <div className='company'>
+      <Link to='/search'>← Back To Results</Link>
       <div className='company__header'>
         <div className='company__leftcol'>
           <div className='company__image'><img src={ companyProfile.image } alt='logo'/></div>

@@ -1,15 +1,16 @@
-import React from 'react'; // eslint-disable-next-line
+import React, { useContext } from 'react'; // eslint-disable-next-line
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import './../App.css'
+import { ProfileContext } from './../App'
+import './../App.css';
 
 const Profiles = (props) => {
 
-  console.log(props.profiles)
+  const profiles = useContext(ProfileContext);
 
   return (
     <div className='profile__container'>
         { 
-          props.profiles.map((profile, i) => {
+          profiles.map((profile, i) => {
             if (!profile.description || !profile.industry) return null;
 
             let change = profile.changes.toFixed(2);

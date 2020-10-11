@@ -24,7 +24,7 @@ const Profiles = (props) => {
             else if (mktCapStrLength >= 7) mktCapStr = (profile.mktCap / 1000000).toFixed(2) + ' Million'
             else mktCapStr = profile.mktCap.toString();
 
-            const shortenedDescription = profile.description.slice(0, 380) + ' ...'
+            const shortenedDescription = profile.description.slice(0, 420) + ' ...'
 
             return (
               <React.Fragment key={i}>

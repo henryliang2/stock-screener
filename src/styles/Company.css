@@ -21,6 +21,7 @@
   width: 120px;
   height: 120px;
   border-radius: 6px;
+  border: 1px solid #ccc;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -41,7 +42,8 @@
 }
 
 .company__description {
-  font-family: 'Heebo', 'Arial', 'sans-serif';
+  font-family: 'Titillium Web', 'Heebo', 'Arial', 'Helvetica', 'sans-serif';
+  font-weight: 300;
   padding: 24px;
 }
 
@@ -50,7 +52,8 @@
 }
 
 .company__name {
-  font-family: 'Heebo', 'Arial', 'sans-serif';
+  font-family: 'Titillium Web', 'Heebo', 'Arial', 'Helvetica', 'sans-serif';
+  font-weight: 400;
   font-size: 2.6rem;
 }
 
@@ -94,6 +97,7 @@
   font-family: 'Heebo', 'Arial', 'sans-serif';
   display: inline-block;
   margin: 0 24px;
+  align-self: center;
 }
 
 .tooltip {
@@ -101,13 +105,17 @@
 }
 
 .article {
-  font-family: 'Heebo', 'Arial', 'sans-serif';
+  font-family: 'Titillium Web', 'Heebo', 'Arial', 'Helvetica', 'sans-serif';
   display: flex;
   margin-bottom: 24px;
 }
 
 .article__info {
-  padding: 12px;
+  padding-left: 24px;
+}
+
+.article__info > div > a:hover { 
+  transition: all 0.2s ease;
 }
 
 .article__headline {
@@ -116,8 +124,13 @@
   font-weight: 600;
 }
 
+.article__headline > a:hover {
+  color: #888;
+}
+
 .article__summary {
   font-family: inherit;
+  font-weight: 300;
   font-size: 0.9rem;
 }
 
@@ -125,6 +138,10 @@
   font-family: inherit;
   font-size: 0.9rem;
   color: #888;
+}
+
+.article__source > a:hover {
+  color: #ccc;
 }
 
 .article__image {

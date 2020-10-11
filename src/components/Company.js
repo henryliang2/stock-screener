@@ -41,14 +41,14 @@ const Company = (props) => {
     })
     .then(jsonData => jsonData.json())
     .then(data => { 
+      console.log(data.newsArray)
       setNewsArticles(data.newsArray)
     });
-
+  // eslint-disable-next-line
   }, [])
   
   return (
     <div className='company'>
-      <Link to='/search'>← Back To Results</Link>
       <div className='company__header'>
         <div className='company__leftcol'>
           <div className='company__image'><img src={ companyProfile.image } alt='logo'/></div>
@@ -83,6 +83,7 @@ const Company = (props) => {
           <div className='company__info-line'>Industry: { companyProfile.industry }</div>
           <div className='company__info-line'>IPO Date: { companyProfile.ipoDate }</div>
           <div className='company__info-line'>CEO: { companyProfile.ceo }</div>
+          <div className='company__info-line'>Website: <a href={ companyProfile.website }>{ companyProfile.website }</a></div>
         </div>
         <div className='company__news'>
           <div className='company__name'>Recent Headlines</div>
@@ -90,11 +91,11 @@ const Company = (props) => {
             newsArticles.map((article, i) => {
               return (
                 <div className='article' key={i}>
-                  <div className='article__image' style={{backgroundImage : `url(${article.image})`}}></div>
+                  <a href={ article.url }><div className='article__image' style={{backgroundImage : `url(${article.image})`}}></div></a>
                   <div className='article__info'>
-                    <div className='article__headline'>{ article.headline }</div>
+                    <div className='article__headline'><a href={ article.url }>{ article.headline }</a></div>
                     <div className='article__summary'>{ article.summary }</div>
-                    <div className='article__source'>{ article.source }</div>
+                    <div className='article__source'>Source: { article.source }</div>
                   </div>
                 </div>
               );

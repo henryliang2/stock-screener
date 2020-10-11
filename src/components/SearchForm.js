@@ -22,8 +22,7 @@ const SearchForm = (props) => {
       className='searchform'      
       onSubmit={(e) => { 
         e.preventDefault();
-        props.setInitialValue(1); 
-        props.runApiCall(); 
+        props.runApiCall(1); 
       }}
       type='submit' >
 

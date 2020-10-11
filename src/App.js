@@ -18,13 +18,13 @@ const App = () => {
 
   const [initialValue, setInitialValue] = useState(1);
 
-  const runApiCall = () => {
+  const runApiCall = (startNum) => {
     fetch('http://localhost:3001/search', {
       method: 'POST',
       headers: { 'Content-Type' : 'application/json'},
       body: JSON.stringify({ 
         "queryOptions" : queryOptions, 
-        "initialValue" : initialValue
+        "initialValue" : startNum
       })
     })
     .then(jsonData => jsonData.json())

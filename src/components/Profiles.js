@@ -30,7 +30,9 @@ const Profiles = (props) => {
             else if (mktCapStrLength >= 7) mktCapStr = (profile.mktCap / 1000000).toFixed(2) + ' Million'
             else mktCapStr = profile.mktCap.toString();
 
-            const shortenedDescription = profile.description.slice(0, 420) + ' ...'
+            const shortenedDescription = profile.description.slice(0, 560) + ' ...'
+
+            const price = profile.price.toFixed(2);
 
             return (
               <React.Fragment key={i}>
@@ -42,7 +44,7 @@ const Profiles = (props) => {
                       </div>
                     </Link>
                     <div className='profile__price'>
-                      <div className='profile__priceValue'>{ profile.price }&nbsp;</div>
+                      <div className='profile__priceValue'>{ price }&nbsp;</div>
                       <div className='profile__priceChange' style={
                           {color: change[1] === '+' ? 'green' : 'red'}
                         }>{ change }</div>

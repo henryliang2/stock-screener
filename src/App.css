@@ -120,3 +120,12 @@ a {
   color: turquoise;
   font-size: 2rem;
 }
+
+.profile__resultcount {
+  font-family: 'Titillium Web', 'Heebo', 'Arial', 'Helvetica', 'sans-serif';
+  font-weight: 600;
+  font-size: 3rem;
+  width: 90vw;
+  max-width: 1200px;
+  margin: auto;
+}

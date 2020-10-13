@@ -34,14 +34,9 @@ const Company = (props) => {
 
   // fetch news articles from Finnhub API
   useEffect(() => {
-    fetch('http://localhost:3001/companynews', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ "ticker": symbol})
-    })
+    fetch(`http://localhost:3001/companynews/${symbol}`)
     .then(jsonData => jsonData.json())
     .then(data => { 
-      console.log(data.newsArray)
       setNewsArticles(data.newsArray)
     });
   // eslint-disable-next-line

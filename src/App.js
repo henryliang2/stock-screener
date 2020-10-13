@@ -18,17 +18,17 @@ const App = () => {
 
   const [initialValue, setInitialValue] = useState(1);
 
+  const [totalResultCount, setTotalResultCount] = useState(0);
+
   const runApiCall = (startNum) => {
-    fetch('http://localhost:3001/search', {
-      method: 'POST',
-      headers: { 'Content-Type' : 'application/json'},
-      body: JSON.stringify({ 
-        "queryOptions" : queryOptions, 
-        "initialValue" : startNum
-      })
-    })
+    fetch(`http://localhost:3001/search/${startNum}/${queryOptions}`)
     .then(jsonData => jsonData.json())
-    .then(data => { setProfiles(data) })
+    .then(responseObject => { 
+      console.log(responseObject)
+      if (responseObject.stockData.error) return null;
+      setProfiles(responseObject.stockData) 
+      setTotalResultCount(responseObject.totalResultCount);
+    })
   };
 
   return (
@@ -50,6 +50,7 @@ const App = () => {
                 runApiCall={ runApiCall } 
                 />
               <Profiles 
+                totalResultCount = { totalResultCount }
                 initialValue={ initialValue }
                 setInitialValue={ setInitialValue }
                 runApiCall={ runApiCall }

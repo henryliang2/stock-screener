@@ -8,7 +8,13 @@ const Profiles = (props) => {
   const profiles = useContext(ProfileContext);
 
   return (
-    <div className='profile__container'>
+    <React.Fragment>
+
+      { props.totalResultCount > 0 &&
+        <div className='profile__resultcount'>{props.totalResultCount} Results:</div>
+      }
+
+      <div className='profile__container'>
         { 
           profiles.map((profile, i) => {
             if (!profile.description || !profile.industry) return null;
@@ -58,13 +64,17 @@ const Profiles = (props) => {
             );
           })
         }
-
-        <button onClick={ () => { 
-          props.runApiCall(props.initialValue + 20);
-          props.setInitialValue(props.initialValue + 20);
-        }}>Next Page</button>
-
       </div>
+
+      { props.initialValue < props.totalResultCount &&
+        <div>
+          <button onClick={ () => { 
+            props.runApiCall(props.initialValue + 20);
+            props.setInitialValue(props.initialValue + 20);
+          }}>Next Page</button>
+        </div>
+      }
+    </React.Fragment>
   );
 }
 

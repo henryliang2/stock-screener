@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useContext } from 'react'; // eslint-disable-next-line
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import { ProfileContext, WatchListContext } from './../App'
+import { SearchResultContext, WatchListContext } from './../App'
 import Fundamentals from './Fundamentals';
 import './../styles/Company.css'
 
 const Company = (props) => {
 
-  const profiles = useContext(ProfileContext);
+  const searchResults = useContext(SearchResultContext);
   const {watchList, setWatchList} = useContext(WatchListContext);
 
   let { id } = useParams();
@@ -19,12 +19,12 @@ const Company = (props) => {
 
   // extract current company profile from prop (which is an array of all companies)
   useEffect(() => {
-    profiles.forEach(profile => {
-      if (Object.values(profile).includes(symbol)) {
-        setCompanyProfile(profile);
+    searchResults.forEach(result => {
+      if (Object.values(result).includes(symbol)) {
+        setCompanyProfile(result);
 
         // Format the price change for color and pos/neg
-        let change = profile.changes.toFixed(2);
+        let change = result.changes.toFixed(2);
         if(Math.sign(change) === 1 || Math.sign(change) === 0) change = `(+${change.toString()}%)`;
         else change = `(${change.toString()}%)`;
         setPriceChange(change);

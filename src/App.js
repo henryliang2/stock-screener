@@ -3,19 +3,20 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Landing from './components/Landing';
 import SearchForm from './components/SearchForm';
 import Navigation from './components/Navigation';
-import Profiles from './components/Profiles';
+import SearchResults from './components/SearchResults';
 import Company from './components/Company';
+import UserProfile from './components/UserProfile.js';
 import dummyState from './dummy';
 import './App.css';
 
 export const UserContext = React.createContext(null);
-export const ProfileContext = React.createContext(null);
+export const SearchResultContext = React.createContext(null);
 export const WatchListContext = React.createContext(null);
 
 const App = () => {
 
   // An array of retrieved companies that matches user's query
-  const [profiles, setProfiles] = useState([]);
+  const [searchResults, setSearchResults] = useState([]);
 
   // Query options and value of the index of the first result for scraping Finviz
   const [queryOptions, setQueryOptions] = useState('');
@@ -45,7 +46,7 @@ const App = () => {
     .then(responseObject => { 
       console.log(responseObject)
       if (responseObject.stockData.error) return null;
-      setProfiles(responseObject.stockData) 
+      setSearchResults(responseObject.stockData) 
       setTotalResultCount(responseObject.totalResultCount);
     })
   };
@@ -59,7 +60,7 @@ const App = () => {
         
         <Router>
           <Switch>
-            <ProfileContext.Provider value={ profiles }>
+            <SearchResultContext.Provider value={ searchResults }>
             <WatchListContext.Provider value={ { watchList, setWatchList } }>
 
               <Route exact path="/">
@@ -76,7 +77,7 @@ const App = () => {
                   totalResultCount > 0 &&
                   <div className='profile__resultcount'>{ totalResultCount } Results:</div>
                 }
-                <Profiles 
+                <SearchResults 
                   initialValue={ initialValue }
                   setInitialValue={ setInitialValue }
                   runApiCall={ runApiCall }
@@ -88,10 +89,11 @@ const App = () => {
               }/>
 
               <Route path='/userprofile'>
+                <UserProfile />
               </Route>
             
             </WatchListContext.Provider>
-            </ProfileContext.Provider>
+            </SearchResultContext.Provider>
           </Switch>
         </Router>
 

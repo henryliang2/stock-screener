@@ -1,13 +1,13 @@
 import React, { useContext, useEffect } from 'react'; // eslint-disable-next-line
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { ProfileContext, UserContext, WatchListContext } from './../App'
+import { SearchResultContext, UserContext, WatchListContext } from './../App'
 import './../App.css';
 
-const Profiles = (props) => {
+const SearchResults = (props) => {
 
   const user = useContext(UserContext);
 
-  const profiles = useContext(ProfileContext);
+  const searchResults = useContext(SearchResultContext);
 
   const { watchList, setWatchList } = useContext(WatchListContext);
 
@@ -27,7 +27,7 @@ const Profiles = (props) => {
 
       <div className='profile__container'>
         { 
-          profiles.map((profile, i) => {
+          searchResults.map((profile, i) => {
             if (!profile.description || !profile.industry) return null;
 
             // Formatting Price Change Percentage String
@@ -100,4 +100,4 @@ const Profiles = (props) => {
   );
 }
 
-export default Profiles;
+export default SearchResults;

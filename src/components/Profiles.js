@@ -1,28 +1,41 @@
-import React, { useContext } from 'react'; // eslint-disable-next-line
+import React, { useContext, useEffect } from 'react'; // eslint-disable-next-line
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { ProfileContext } from './../App'
+import { ProfileContext, UserContext, WatchListContext } from './../App'
 import './../App.css';
 
 const Profiles = (props) => {
 
+  const user = useContext(UserContext);
+
   const profiles = useContext(ProfileContext);
+
+  const { watchList, setWatchList } = useContext(WatchListContext);
+
+  // Sync watchlist with DB on login
+  useEffect(() => {
+    if(user.googleId) {
+      console.log(user);
+      fetch(`http://localhost:3001/sync/${user.googleId}`)
+      .then(jsonUser => jsonUser.json())
+      .then(user => setWatchList(user.stocks));
+    }
+  // eslint-disable-next-line
+  }, []);
 
   return (
     <React.Fragment>
-
-      { props.totalResultCount > 0 &&
-        <div className='profile__resultcount'>{props.totalResultCount} Results:</div>
-      }
 
       <div className='profile__container'>
         { 
           profiles.map((profile, i) => {
             if (!profile.description || !profile.industry) return null;
 
+            // Formatting Price Change Percentage String
             let change = profile.changes.toFixed(2);
             if(Math.sign(change) === 1 || Math.sign(change) === 0) change = `(+${change.toString()}%)`;
             else change = `(${change.toString()}%)`;
 
+            // Formatting Market Cap String
             const mktCapStrLength = profile.mktCap.toString().length;
             let mktCapStr = '';
             if (mktCapStrLength >= 13) mktCapStr = (profile.mktCap / 1000000000000).toFixed(2) + ' Trillion'
@@ -30,8 +43,10 @@ const Profiles = (props) => {
             else if (mktCapStrLength >= 7) mktCapStr = (profile.mktCap / 1000000).toFixed(2) + ' Million'
             else mktCapStr = profile.mktCap.toString();
 
+            // Formatting Description String
             const shortenedDescription = profile.description.slice(0, 560) + ' ...'
 
+            // Formatting Price String
             const price = profile.price.toFixed(2);
 
             return (
@@ -60,6 +75,11 @@ const Profiles = (props) => {
                     <div className='profile__industry'>{ profile.industry }</div>
                     <div className='profile__mktCap'>Market Cap: { mktCapStr }</div>
                     <div className='profile__desc'>{ shortenedDescription }</div>
+                    { !watchList.includes(profile.symbol) &&
+                      <button onClick={() => {
+                        setWatchList([...watchList, profile.symbol]);
+                      }}>+</button>
+                    }
                   </div>
                 </div>
               </React.Fragment>

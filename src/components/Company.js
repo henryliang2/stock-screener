@@ -1,13 +1,14 @@
 import React, { useState, useEffect, useContext } from 'react'; // eslint-disable-next-line
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import { ProfileContext } from './../App'
+import { ProfileContext, WatchListContext } from './../App'
 import Fundamentals from './Fundamentals';
 import './../styles/Company.css'
 
 const Company = (props) => {
 
   const profiles = useContext(ProfileContext);
+  const {watchList, setWatchList} = useContext(WatchListContext);
 
   let { id } = useParams();
   const symbol = id;
@@ -67,8 +68,13 @@ const Company = (props) => {
             volAvg = { companyProfile.volAvg }
           />
         }
-
       </div>
+
+      { !watchList.includes(companyProfile.symbol) &&
+        <button onClick={() => {
+          props.setWatchList([...watchList, companyProfile.symbol]);
+        }}>+</button>
+      }
 
       <div className='company__info'>
         <div className='company__description'>

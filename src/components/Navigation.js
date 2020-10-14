@@ -12,8 +12,12 @@ const Navigation = () => {
         <div className='nav__logo'>StockSurfer</div>
         <div className='nav__links'>
           <div className='nav__user'>
-            <div className='nav__userImage'></div>
-            <div className='nav__userName'></div>
+            { user.googleId &&
+              <React.Fragment>
+                <div className='nav__userImage'><img src={user.imageUrl} alt='user'/></div>
+                <div className='nav__userName'>{user.name}</div>
+              </React.Fragment>
+            }
           </div>
         </div>
       </div>

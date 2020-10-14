@@ -22,22 +22,7 @@ const App = () => {
 
   const [totalResultCount, setTotalResultCount] = useState(0);
 
-  const [user, setUser] = useState({ 
-      "displayName": "Guest",
-      "photos": [
-        {
-          "value": "https://lh4.googleusercontent.com/-7trTtJvSjgg/AAAAAAAAAAI/AAAAAAAAAAA/AMZuucni5AkqbzKKfqejpxISgHwATIhKYQ/s96-c/photo.jpg"
-        }],
-    });
-
-  useEffect(() => {
-    fetch('http://localhost:3001/user')
-    .then(jsonData => jsonData.json())
-    .then(returnedUser => {
-      console.log(returnedUser); 
-      if(returnedUser.id) setUser(returnedUser);
-    });
-  }, [])
+  const [user, setUser] = useState({});
 
   const runApiCall = (startNum) => {
     fetch(`http://localhost:3001/search/${startNum}/${queryOptions}`)
@@ -62,7 +47,7 @@ const App = () => {
             <ProfileContext.Provider value={ profiles }>
 
               <Route exact path="/">
-                <Landing />
+                <Landing setUser={ setUser }/>
               </Route>
 
               <Route path='/search'>

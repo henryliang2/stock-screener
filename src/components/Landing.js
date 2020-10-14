@@ -1,9 +1,20 @@
 import React from 'react'; // eslint-disable-next-line
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link, useHistory } from "react-router-dom";
+import { GoogleLogin } from 'react-google-login';
 import './../App.css'
 import './../styles/Landing.css'
 
-const Landing = () => {
+const Landing = (props) => {
+
+  let history = useHistory();
+
+  const responseGoogle = (res) => {
+    if(res.profileObj) {
+      props.setUser(res.profileObj);
+      history.push('/search');
+    }
+    console.log(res);
+  }
 
   return (
     <div className='landing'>
@@ -11,9 +22,13 @@ const Landing = () => {
         <div className='landing__text'>
           <div className='landing__title'>Surf the Market.</div>
           <div className='landing__desc'>StockSurfer is a stock screener designed for retail and DIY investors.</div>
-            <a href='http://localhost:3001/auth/google'><div className='landing__signin landing__signin--google'>
-              Sign in with Google
-            </div></a>
+          <GoogleLogin
+            clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+            buttonText="Sign In With Google"
+            onSuccess={responseGoogle}
+            onFailure={responseGoogle}
+            cookiePolicy={'single_host_origin'}
+          />
           <Link to='/search'>
             <div className='landing__signin landing__signin--guest'>
               Sign in as Guest

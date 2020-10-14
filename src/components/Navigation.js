@@ -12,8 +12,8 @@ const Navigation = () => {
         <div className='nav__logo'>StockSurfer</div>
         <div className='nav__links'>
           <div className='nav__user'>
-            <div className='nav__userImage'><img src={ user.photos[0].value } alt='user'/></div>
-            <div className='nav__userName'>{ user.displayName }</div>
+            <div className='nav__userImage'></div>
+            <div className='nav__userName'></div>
           </div>
         </div>
       </div>

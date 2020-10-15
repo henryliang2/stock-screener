@@ -1,4 +1,6 @@
 import React, { useContext } from 'react';
+// eslint-disable-next-line
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { UserContext } from '../App';
 import './../styles/Navigation.css'
 
@@ -14,8 +16,9 @@ const Navigation = () => {
           <div className='nav__user'>
             { user.googleId &&
               <React.Fragment>
-                <div className='nav__userImage'><img src={user.imageUrl} alt='user'/></div>
-                <div className='nav__userName'>{user.name}</div>
+                <Link to='/userprofile'><div className='nav__collection-button'>My Collection</div></Link>
+                <div className='nav__user-image'><img src={user.imageUrl} alt='user'/></div>
+                <div className='nav__user-name'>{user.name}</div>
               </React.Fragment>
             }
           </div>

@@ -55,10 +55,10 @@ const App = () => {
     <React.Fragment>
 
       <UserContext.Provider value={ user }>
-
-        <Navigation />
-        
         <Router>
+
+          <Navigation />
+
           <Switch>
             <SearchResultContext.Provider value={ searchResults }>
             <WatchListContext.Provider value={ { watchList, setWatchList } }>

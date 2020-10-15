@@ -1,5 +1,6 @@
-import React from 'react'; // eslint-disable-next-line
+import React, { useContext, useEffect } from 'react'; // eslint-disable-next-line
 import { BrowserRouter as Router, Switch, Route, Link, useHistory } from "react-router-dom";
+import { UserContext } from './../App';
 import { GoogleLogin } from 'react-google-login';
 import './../App.css'
 import './../styles/Landing.css'
@@ -8,13 +9,18 @@ const Landing = (props) => {
 
   let history = useHistory();
 
+  const user = useContext(UserContext);
+
   const responseGoogle = (res) => {
-    if(res.profileObj) {
-      props.setUser(res.profileObj);
-      history.push('/search');
-    }
+    if(res.profileObj) props.setUser(res.profileObj);
     console.log(res);
   }
+
+  // if user exists, redirect to search page
+  useEffect(() => {
+    if(user.googleId) history.push('/search');
+  // eslint-disable-next-line
+  }, [user])
 
   return (
     <div className='landing'>

@@ -131,10 +131,9 @@ a {
   margin: auto;
 }
 
-.profile__savebutton {
+.profile__button {
   display: block;
   margin-top: 12px;
-  background: #111b30;
   color: white;
   font-family: 'Titillium Web', 'Heebo', 'Arial', 'Helvetica', 'sans-serif';
   font-size: 0.9rem;
@@ -143,6 +142,18 @@ a {
   cursor: pointer;
 }
 
-.profile__savebutton:hover { 
-  background: #2f4573;
+.profile__button--save {
+  background: #111b30;
+}
+
+.profile__button--save:hover {
+  background: #888;
+}
+
+.profile__button--remove {
+  background: #690606;
+}
+
+.profile__button--remove:hover {
+  background: #888;
 }

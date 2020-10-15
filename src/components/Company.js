@@ -59,8 +59,9 @@ const Company = (props) => {
               }>
               { priceChange }
             </div>
-            { !watchList.includes(companyProfile.symbol) &&
-              <button class='profile__savebutton' onClick={() => {
+            { 
+              !watchList.includes(companyProfile.symbol) &&
+              <button class='profile__button profile__button--save' onClick={() => {
                 setWatchList([...watchList, companyProfile.symbol]);
               }}>+ Save to My Collection</button>
             }

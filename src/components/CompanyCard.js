@@ -9,7 +9,15 @@ const CompanyCard = (props) => {
 
   const { companyProfile } = props;
 
-  if (!companyProfile.description || !companyProfile.industry) return null; // blank card if no description
+  const removeFromWatchList = (symbol) => {
+    let updatedList = [...watchList];
+    const idx = updatedList.indexOf(symbol);
+    updatedList.splice(idx, 1);
+    setWatchList(updatedList);
+  }
+
+  // return blank card if no description or industry
+  if (!companyProfile.description || !companyProfile.industry) return null;
 
   // Formatting Price Change Percentage String
   let change = companyProfile.changes.toFixed(2);
@@ -56,10 +64,16 @@ const CompanyCard = (props) => {
           <div className='profile__industry'>{ companyProfile.industry }</div>
           <div className='profile__mktCap'>Market Cap: { mktCapStr }</div>
           <div className='profile__desc'>{ shortenedDescription }</div>
-          { !watchList.includes(companyProfile.symbol) &&
-            <button class='profile__savebutton' onClick={() => {
-              setWatchList([...watchList, companyProfile.symbol]);
-            }}>+ Save to My Collection</button>
+          { 
+            !watchList.includes(companyProfile.symbol) 
+            
+            ? <button className='profile__button profile__button--save' onClick={() => {
+                setWatchList([...watchList, companyProfile.symbol]);
+              }}>+ Save to Collection</button>
+
+            : <button className='profile__button profile__button--remove' onClick={() => {
+                removeFromWatchList(companyProfile.symbol);
+              }}>+ Remove from Collection</button>
           }
         </div>
       </div>

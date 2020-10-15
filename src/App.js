@@ -31,14 +31,15 @@ const App = () => {
 
   // update DB whenever watchlist is modified
   useEffect(() => {
-    if(user.googleId) {
+    if(user.userId) {
       fetch('http://localhost:3001/set', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ googleId: user.googleId, stocks: watchList })
+        body: JSON.stringify({ stocks: watchList }),
+        credentials: 'include'
       })
     }
-  }, [watchList])
+  })
 
   const runApiCall = (startNum) => {
     fetch(`http://localhost:3001/search/${startNum}/${queryOptions}`)
@@ -54,7 +55,7 @@ const App = () => {
   return (
     <React.Fragment>
 
-      <UserContext.Provider value={ user }>
+      <UserContext.Provider value={ { user, setUser } }>
         <Router>
 
           <Navigation />
@@ -64,7 +65,7 @@ const App = () => {
             <WatchListContext.Provider value={ { watchList, setWatchList } }>
 
               <Route exact path="/">
-                <Landing setUser={ setUser }/>
+                <Landing />
               </Route>
 
               <Route path='/search'>

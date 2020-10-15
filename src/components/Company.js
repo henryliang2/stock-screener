@@ -30,8 +30,7 @@ const Company = (props) => {
         setPriceChange(change);
       }
     });
-  // eslint-disable-next-line
-  }, [])
+  })
 
   // fetch news articles from Finnhub API
   useEffect(() => {
@@ -40,8 +39,7 @@ const Company = (props) => {
     .then(data => { 
       setNewsArticles(data.newsArray)
     });
-  // eslint-disable-next-line
-  }, [])
+  })
   
   return (
     <div className='company'>
@@ -61,7 +59,7 @@ const Company = (props) => {
             </div>
             { 
               !watchList.includes(companyProfile.symbol) &&
-              <button class='profile__button profile__button--save' onClick={() => {
+              <button className='profile__button profile__button--save' onClick={() => {
                 setWatchList([...watchList, companyProfile.symbol]);
               }}>+ Save to My Collection</button>
             }

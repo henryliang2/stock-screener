@@ -1,26 +1,28 @@
 import React, { useContext, useEffect } from 'react'; // eslint-disable-next-line
 import { BrowserRouter as Router, Switch, Route, Link, useHistory } from "react-router-dom";
-import { UserContext } from './../App';
-import { GoogleLogin } from 'react-google-login';
+import { UserContext, WatchListContext } from './../App';
 import './../App.css'
 import './../styles/Landing.css'
 
 const Landing = (props) => {
 
   let history = useHistory();
-
-  const user = useContext(UserContext);
-
-  const responseGoogle = (res) => {
-    if(res.profileObj) props.setUser(res.profileObj);
-    console.log(res);
-  }
+  const { user, setUser } = useContext(UserContext);
+  const { setWatchList } = useContext(WatchListContext);
 
   // if user exists, redirect to search page
+  useEffect(() => { if(user.userId) history.push('/search'); })
+
+  // Get user (after successful login) and sync with DB
   useEffect(() => {
-    if(user.googleId) history.push('/search');
-  // eslint-disable-next-line
-  }, [user])
+    fetch(`http://localhost:3001/sync/`, { credentials: 'include'})
+    .then(jsonUser => jsonUser.json())
+    .then(returnedUser => { 
+      if(!returnedUser.userId) return null;
+      setUser(returnedUser);
+      setWatchList(returnedUser.stocks)
+    });
+  }, []);
 
   return (
     <div className='landing'>
@@ -28,14 +30,12 @@ const Landing = (props) => {
         <div className='landing__text'>
           <div className='landing__title'>Surf the Market.</div>
           <div className='landing__desc'>StockSurfer is a stock screener designed for retail and DIY investors.</div>
-          <GoogleLogin
-            clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
-            buttonText="Sign In With Google"
-            onSuccess={responseGoogle}
-            onFailure={responseGoogle}
-            cookiePolicy={'single_host_origin'}
-          />
-          <Link to='/search'>
+          <a href='http://localhost:3001/auth/google'>
+            <div className='landing__signin landing__signin--google'>
+              Sign in with Google
+            </div>
+          </a>
+          <Link to='/search/guest'>
             <div className='landing__signin landing__signin--guest'>
               Sign in as Guest
             </div>

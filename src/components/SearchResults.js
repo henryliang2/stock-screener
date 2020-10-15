@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { SearchResultContext, UserContext, WatchListContext } from './../App'
 import CompanyCard from './CompanyCard';
 import './../App.css';
@@ -6,22 +6,7 @@ import './../App.css';
 
 const SearchResults = (props) => {
 
-  const user = useContext(UserContext);
-
   const searchResults = useContext(SearchResultContext);
-
-  const { watchList, setWatchList } = useContext(WatchListContext);
-
-  // Sync watchlist with DB on login
-  useEffect(() => {
-    if(user.googleId) {
-      console.log(user);
-      fetch(`http://localhost:3001/sync/${user.googleId}`)
-      .then(jsonUser => jsonUser.json())
-      .then(user => setWatchList(user.stocks));
-    }
-  // eslint-disable-next-line
-  }, []);
 
   return (
     <React.Fragment>

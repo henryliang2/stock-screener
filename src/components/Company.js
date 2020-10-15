@@ -56,7 +56,14 @@ const Company = (props) => {
             <div className='company__price'>{ companyProfile.price }</div>
             <div className='company__priceChange' style={
                 {color: priceChange[1] === '+' ? 'green' : 'red'}
-              }>{ priceChange }</div>
+              }>
+              { priceChange }
+            </div>
+            { !watchList.includes(companyProfile.symbol) &&
+              <button class='profile__savebutton' onClick={() => {
+                setWatchList([...watchList, companyProfile.symbol]);
+              }}>+ Save to My Collection</button>
+            }
           </div>
         </div>
         
@@ -69,12 +76,6 @@ const Company = (props) => {
           />
         }
       </div>
-
-      { !watchList.includes(companyProfile.symbol) &&
-        <button onClick={() => {
-          props.setWatchList([...watchList, companyProfile.symbol]);
-        }}>+</button>
-      }
 
       <div className='company__info'>
         <div className='company__description'>

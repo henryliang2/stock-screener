@@ -33,10 +33,11 @@ a {
 }
 
 .profile__name {
+  display: flex;
+  justify-content: space-between;
   font-family: inherit;
   font-weight: 400;
   font-size: 1.4rem;
-  display: block;
 }
 
 .profile__name > a:hover {
@@ -128,4 +129,20 @@ a {
   width: 90vw;
   max-width: 1200px;
   margin: auto;
+}
+
+.profile__savebutton {
+  display: block;
+  margin-top: 12px;
+  background: #111b30;
+  color: white;
+  font-family: 'Titillium Web', 'Heebo', 'Arial', 'Helvetica', 'sans-serif';
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.profile__savebutton:hover { 
+  background: #2f4573;
 }

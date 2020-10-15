@@ -16,7 +16,7 @@ export const WatchListContext = React.createContext(null);
 const App = () => {
 
   // An array of retrieved companies that matches user's query
-  const [searchResults, setSearchResults] = useState([]);
+  const [searchResults, setSearchResults] = useState(dummyState);
 
   // Query options and value of the index of the first result for scraping Finviz
   const [queryOptions, setQueryOptions] = useState('');

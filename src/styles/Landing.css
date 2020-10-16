@@ -36,21 +36,15 @@
 }
 
 .landing__signin {
-  display: flex;
+  display: inline-block;
   width: 240px;
   height: 48px;
   background: white;
   font-family: 'Titillium Web', 'Heebo', 'Arial', 'Helvetica', 'sans-serif';
   color: #222;
   border-radius: 4px;
-  text-align: center;
   font-size: 1.1rem;
-  line-height: 48px;
-  margin-right: 24px;
-}
-
-.landing__signin--google > img {
-  display: inline;
+  line-height: 46px;
   margin-right: 24px;
 }
 
@@ -64,6 +58,12 @@
   background: #4285F4;
 }
 
+.landing__signin--google > img {
+  vertical-align: middle;
+  display: inline;
+  margin-right: 24px;
+}
+
 .landing__signin--guest {
-  justify-content: center;
+  text-align: center;
 }

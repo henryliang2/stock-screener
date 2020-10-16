@@ -4,6 +4,7 @@
 a {
   color: inherit;
   text-decoration: none;
+  outline: none;
 }
 
 .searchform__container {

@@ -3,6 +3,10 @@
   background-color: #111b30;
 }
 
+.landing__text > a > div {
+  margin-top: 12px;
+}
+
 .landing__container {
   width: 100%;
   max-width: 1200px;
@@ -32,20 +36,34 @@
 }
 
 .landing__signin {
-  display: inline-block;
-  min-width: 180px;
-  min-height: 48px;
+  display: flex;
+  width: 240px;
+  height: 48px;
   background: white;
+  font-family: 'Titillium Web', 'Heebo', 'Arial', 'Helvetica', 'sans-serif';
   color: #222;
-  border-radius: 6px;
+  border-radius: 4px;
   text-align: center;
-  font-family: inherit;
   font-size: 1.1rem;
   line-height: 48px;
-  margin: 24px 24px 0 0;
+  margin-right: 24px;
+}
+
+.landing__signin--google > img {
+  display: inline;
+  margin-right: 24px;
 }
 
 .landing__signin:hover {
   transition: all 0.2s ease;
   background: #ccc;
+}
+
+.landing__signin--google {
+  color: white;
+  background: #4285F4;
+}
+
+.landing__signin--guest {
+  justify-content: center;
 }

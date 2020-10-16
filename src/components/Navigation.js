@@ -2,7 +2,9 @@ import React, { useContext, useState, useRef, useEffect } from 'react';
 // eslint-disable-next-line
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { UserContext } from '../App';
-import './../styles/Navigation.css'
+import './../App.css';
+import './../styles/Navigation.css';
+import './../styles/Landing.css';
 
 const Navigation = () => {
 
@@ -33,19 +35,25 @@ const Navigation = () => {
 
         <div className='nav__links' ref={ dropdown }>
 
-          <div className='nav__user-button'
-            onClick={() => { if(user.userId) setShowDropdown(!showDropdown) 
-          }}>
+        { user.userId
 
-            <div className='nav__user'>
-              { user.userId &&
+          ? <div className='nav__user-button' onClick={() => { if(user.userId) setShowDropdown(!showDropdown) }}>
+              <div className='nav__user'>
                 <React.Fragment>
                   <div className='nav__user-image'><img src={user.image} alt='user'/></div>
                   <div className='nav__user-name'>{user.displayName}</div>
                 </React.Fragment>
-              }
+              </div>
             </div>
-          </div>
+
+          : <a href='http://localhost:3001/auth/google'>
+              <div className='landing__signin landing__signin--google'>
+                <img src={process.env.PUBLIC_URL + '/google_icon.svg'} />
+                Sign in with Google
+              </div>
+            </a>
+        }
+          
 
           { showDropdown &&
 

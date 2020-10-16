@@ -36,7 +36,7 @@ const CompanyCard = (props) => {
   else mktCapStr = companyProfile.mktCap.toString();
 
   // Formatting Description String
-  const shortenedDescription = companyProfile.description.slice(0, 560) + ' ...'
+  const shortenedDescription = companyProfile.description.slice(0, 360) + ' ...'
 
   // Formatting Price String
   const price = companyProfile.price.toFixed(2);

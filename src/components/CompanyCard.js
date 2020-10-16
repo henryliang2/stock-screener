@@ -1,6 +1,7 @@
-import React, { useContext } from 'react'; // eslint-disable-next-line
+import React, { useContext, useRef } from 'react'; // eslint-disable-next-line
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { WatchListContext } from '../App';
+import './../styles/CompanyCard.css';
 import './../App.css';
 
 const CompanyCard = (props) => {
@@ -8,6 +9,8 @@ const CompanyCard = (props) => {
   const { watchList, setWatchList } = useContext(WatchListContext);
 
   const { companyProfile } = props;
+
+  const cardContainer = useRef(null);
 
   const removeFromWatchList = (symbol) => {
     let updatedList = [...watchList];
@@ -40,38 +43,42 @@ const CompanyCard = (props) => {
 
   return (
     <React.Fragment>
-      <div className='profile'>
-        <div className='profile__leftcol'>
+      <div className='company-card' ref={ cardContainer }>
+        <div className='company-card__leftcol'>
           <Link to={`/company/${ companyProfile.symbol }`}>
-            <div className='profile__image'>
-              <img alt={`${companyProfile.name}-logo`} src={ companyProfile.image }/>
+            <div className='company-card__image'>
+              <img 
+                alt={`${companyProfile.name}-logo`} 
+                src={ companyProfile.image }
+                onLoad={() => { cardContainer.current.classList.add('fade-in')}}
+                />
             </div>
           </Link>
-          <div className='profile__price'>
-            <div className='profile__priceValue'>{ price }&nbsp;</div>
-            <div className='profile__priceChange' style={
+          <div className='company-card__price'>
+            <div className='company-card__priceValue'>{ price }&nbsp;</div>
+            <div className='company-card__priceChange' style={
                 {color: change[1] === '+' ? 'green' : 'red'}
               }>{ change }</div>
           </div>
-          <div className='profile__symbol'>
+          <div className='company-card__symbol'>
             { `${companyProfile.exchangeShortName}: ${ companyProfile.symbol }` }
           </div>
         </div>
-        <div className='profile__rightcol'>
-          <div className='profile__name'>
+        <div className='company-card__rightcol'>
+          <div className='company-card__name'>
             <Link to={`/company/${ companyProfile.symbol }`}>{ companyProfile.companyName }</Link>
           </div>
-          <div className='profile__industry'>{ companyProfile.industry }</div>
-          <div className='profile__mktCap'>Market Cap: { mktCapStr }</div>
-          <div className='profile__desc'>{ shortenedDescription }</div>
+          <div className='company-card__industry'>{ companyProfile.industry }</div>
+          <div className='company-card__mktCap'>Market Cap: { mktCapStr }</div>
+          <div className='company-card__desc'>{ shortenedDescription }</div>
           { 
             !watchList.includes(companyProfile.symbol) 
             
-            ? <button className='profile__button profile__button--save' onClick={() => {
+            ? <button className='company-card__button company-card__button--save' onClick={() => {
                 setWatchList([...watchList, companyProfile.symbol]);
               }}>+ Save to Collection</button>
 
-            : <button className='profile__button profile__button--remove' onClick={() => {
+            : <button className='company-card__button company-card__button--remove' onClick={() => {
                 removeFromWatchList(companyProfile.symbol);
               }}>+ Remove from Collection</button>
           }

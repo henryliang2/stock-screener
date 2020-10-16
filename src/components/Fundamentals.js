@@ -19,8 +19,7 @@ const Fundamentals = (props) => {
 
     // Format Avg Volume by adding commas
     setAvgVolume(props.volAvg.toLocaleString());
-    // eslint-disable-next-line
-  }, [])
+  })
 
   return (
     <div className='fundamentals'>

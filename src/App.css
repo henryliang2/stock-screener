@@ -13,147 +13,25 @@ a {
   grid-template-columns: 1fr 1fr;
 }
 
-.profile {
-  padding: 24px;
-  font-family: 'Titillium Web', 'Heebo', 'Arial', 'Helvetica', 'sans-serif';
-  background: white;
-  border-radius: 6px;
-  display: grid;
-  grid-template-columns: 3fr 7fr;
-}
-
-.profile__leftcol {
-  border-left: 2px solid turquoise;
-  padding: 0 18px;
-}
-
-.profile__leftcol > a:hover {
-  transition: all 0.2s ease;
-  opacity: 0.6;
-}
-
-.profile__name {
-  display: flex;
-  justify-content: space-between;
-  font-family: inherit;
-  font-weight: 400;
-  font-size: 1.4rem;
-}
-
-.profile__name > a:hover {
-  transition: all 0.2s ease;
-  color: #888;
-}
-
-.profile__industry {
-  line-height: 1.1rem;
-  font-family: inherit;
-  font-weight: 300;
-  font-size: 1rem;
-  color: #aaa;
-  display: block;
-}
-
-.profile__mktCap {
-  line-height: 1.1rem;
-  font-family: inherit;
-  font-weight: 300;
-  font-size: 1rem;
-  color: #aaa;
-  display: block;
-  margin-bottom: 12px;
-}
-
-.profile__symbol {
-  font-family: inherit;
-  font-weight: 300;
-  font-size: 1.2rem;
-  display: block;
-  text-align: center;
-  color: #aaa;
-}
-
-.profile__price {
-  margin-top: 12px;
-  display: block;
-  font-size: 1.2rem;
-  text-align: center;
-}
-
-.profile__priceValue {
-  display: inline;
-}
-
-.profile__priceChange {
-  display: inline;
-}
-
-
-.profile__image {
+.profile__button-container {
+  margin: 24px;
   display: flex;
   justify-content: center;
-  align-items: center;
-  width: 120px;
-  height: 120px;
-  margin: auto;
-  background: white;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-}
-
-.profile__image > img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-  border-radius: 6px;
-}
-
-.profile__desc {
-  font-family: inherit;
-  font-weight: 300;
-  font-size: 0.9rem;
-  line-height: 1.1rem;
-  max-height: 240px;
-}
-
-.profile__link {
-  text-align: center;
-  color: turquoise;
-  font-size: 2rem;
-}
-
-.profile__resultcount {
-  font-family: 'Titillium Web', 'Heebo', 'Arial', 'Helvetica', 'sans-serif';
-  font-weight: 600;
-  font-size: 3rem;
-  width: 90vw;
-  max-width: 1200px;
-  margin: auto;
 }
 
 .profile__button {
-  display: block;
-  margin-top: 12px;
-  color: white;
-  font-family: 'Titillium Web', 'Heebo', 'Arial', 'Helvetica', 'sans-serif';
-  font-size: 0.9rem;
-  border: none;
+  font-family: 'Titillium Web', 'Heebo', 'Arial', 'sans-serif';
+  font-size: 1rem;
+  background: #111b30;
+  margin: auto;
+  border: 0;
   border-radius: 6px;
+  min-width: 200px;
+  min-height: 48px;
+  color: white;
   cursor: pointer;
 }
 
-.profile__button--save {
-  background: #111b30;
-}
-
-.profile__button--save:hover {
-  background: #888;
-}
-
-.profile__button--remove {
-  background: #690606;
-}
-
-.profile__button--remove:hover {
+.profile__button:hover {
   background: #888;
 }

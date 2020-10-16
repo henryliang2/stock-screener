@@ -1,0 +1,151 @@
+
+.company-card {
+  padding: 24px;
+  font-family: 'Titillium Web', 'Heebo', 'Arial', 'Helvetica', 'sans-serif';
+  background: white;
+  border-radius: 6px;
+  display: grid;
+  grid-template-columns: 3fr 7fr;
+  opacity: 0;
+}
+
+.company-card__leftcol {
+  border-left: 2px solid turquoise;
+  padding: 0 18px;
+}
+
+.company-card__leftcol > a:hover {
+  transition: all 0.2s ease;
+  opacity: 0.6;
+}
+
+.company-card__name {
+  display: flex;
+  justify-content: space-between;
+  font-family: inherit;
+  font-weight: 400;
+  font-size: 1.4rem;
+}
+
+.company-card__name > a:hover {
+  transition: all 0.2s ease;
+  color: #888;
+}
+
+.company-card__industry {
+  line-height: 1.1rem;
+  font-family: inherit;
+  font-weight: 300;
+  font-size: 1rem;
+  color: #aaa;
+  display: block;
+}
+
+.company-card__mktCap {
+  line-height: 1.1rem;
+  font-family: inherit;
+  font-weight: 300;
+  font-size: 1rem;
+  color: #aaa;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.company-card__symbol {
+  font-family: inherit;
+  font-weight: 300;
+  font-size: 1.2rem;
+  display: block;
+  text-align: center;
+  color: #aaa;
+}
+
+.company-card__price {
+  margin-top: 12px;
+  display: block;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.company-card__priceValue {
+  display: inline;
+}
+
+.company-card__priceChange {
+  display: inline;
+}
+
+
+.company-card__image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 120px;
+  margin: auto;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.company-card__image > img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+.company-card__desc {
+  font-family: inherit;
+  font-weight: 300;
+  font-size: 0.9rem;
+  line-height: 1.1rem;
+  max-height: 240px;
+}
+
+.company-card__link {
+  text-align: center;
+  color: turquoise;
+  font-size: 2rem;
+}
+
+.profile__resultcount {
+  font-family: 'Titillium Web', 'Heebo', 'Arial', 'Helvetica', 'sans-serif';
+  font-weight: 600;
+  font-size: 3rem;
+  width: 90vw;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.company-card__button {
+  display: block;
+  margin-top: 12px;
+  color: white;
+  font-family: 'Titillium Web', 'Heebo', 'Arial', 'Helvetica', 'sans-serif';
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.company-card__button--save {
+  background: #111b30;
+}
+
+.company-card__button--save:hover {
+  background: #888;
+}
+
+.company-card__button--remove {
+  background: #690606;
+}
+
+.company-card__button--remove:hover {
+  background: #888;
+}
+
+.fade-in {
+  transition: all 0.4s ease;
+  opacity: 1;
+}

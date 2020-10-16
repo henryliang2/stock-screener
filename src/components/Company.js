@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react'; // eslint-disable-next-line
+import React, { useState, useEffect, useContext, useRef } from 'react'; // eslint-disable-next-line
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { SearchResultContext, WatchListContext } from './../App'
@@ -7,11 +7,11 @@ import './../styles/Company.css'
 
 const Company = (props) => {
 
+  const { id } = useParams();
+  const symbol = id;
+
   const searchResults = useContext(SearchResultContext);
   const {watchList, setWatchList} = useContext(WatchListContext);
-
-  let { id } = useParams();
-  const symbol = id;
 
   const [companyProfile, setCompanyProfile] = useState({});
   const [newsArticles, setNewsArticles] = useState([]);
@@ -39,7 +39,7 @@ const Company = (props) => {
     .then(data => { 
       setNewsArticles(data.newsArray)
     });
-  })
+  }, [])
   
   return (
     <div className='company'>
@@ -59,7 +59,7 @@ const Company = (props) => {
             </div>
             { 
               !watchList.includes(companyProfile.symbol) &&
-              <button className='profile__button profile__button--save' onClick={() => {
+              <button className='company-card__button company-card__button--save' onClick={() => {
                 setWatchList([...watchList, companyProfile.symbol]);
               }}>+ Save to My Collection</button>
             }
@@ -90,16 +90,7 @@ const Company = (props) => {
           <div className='company__name'>Recent Headlines</div>
           {
             newsArticles.map((article, i) => {
-              return (
-                <div className='article' key={i}>
-                  <a href={ article.url }><div className='article__image' style={{backgroundImage : `url(${article.image})`}}></div></a>
-                  <div className='article__info'>
-                    <div className='article__headline'><a href={ article.url }>{ article.headline }</a></div>
-                    <div className='article__summary'>{ article.summary }</div>
-                    <div className='article__source'>Source: { article.source }</div>
-                  </div>
-                </div>
-              );
+              return <Article article={article} key={i} />
             })
           }
         </div>
@@ -111,6 +102,30 @@ const Company = (props) => {
     </div>
   );
 
+}
+
+export const Article = (props) => {
+
+  const articleRef = useRef(null)
+
+  return (
+    <div className='article' ref={articleRef}>
+      <a href={ props.article.url }>
+        <div className='article__image' style={{backgroundImage : `url(${props.article.image})`}}>
+          <img 
+            src={ props.article.image } 
+            alt='article' 
+            onLoad={() => { articleRef.current.classList.add('fade-in')}}
+            />
+        </div>
+      </a>
+      <div className='article__info'>
+        <div className='article__headline'><a href={ props.article.url }>{ props.article.headline }</a></div>
+        <div className='article__summary'>{ props.article.summary }</div>
+        <div className='article__source'>Source: { props.article.source }</div>
+      </div>
+    </div>
+  );
 }
 
 export default Company;

@@ -48,7 +48,7 @@ const Navigation = () => {
               </div>
             </div>
 
-          : <a href='http://localhost:3001/auth/google'>
+          : <a href='https://stocksurfer-server.herokuapp.com/:3001/auth/google'>
               <div className='landing__signin landing__signin--google'>
                 <img src={process.env.PUBLIC_URL + '/google_icon.svg'} />
                 Sign in with Google
@@ -63,7 +63,7 @@ const Navigation = () => {
               <Link to='/userprofile'>
                 <div className='nav__collection-button'><LibraryBooksIcon/>&nbsp;My Collection</div>
               </Link>
-              <a href='http://localhost:3001/auth/logout'>
+              <a href='https://stocksurfer-server.herokuapp.com/:3001/auth/logout'>
                 <div className='nav__collection-button'><ExitToAppIcon/>&nbsp;Logout</div>
               </a>
             </div>

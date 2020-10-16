@@ -15,7 +15,7 @@ const Landing = (props) => {
 
   // Get user (after successful login) and sync with DB
   useEffect(() => {
-    fetch(`http://localhost:3001/sync/`, { credentials: 'include'})
+    fetch(`https://stocksurfer-server.herokuapp.com/sync/`, { credentials: 'include'})
     .then(jsonUser => jsonUser.json())
     .then(returnedUser => { 
       if(!returnedUser.userId) return null;
@@ -30,7 +30,7 @@ const Landing = (props) => {
         <div className='landing__text'>
           <div className='landing__title'>Surf the Market.</div>
           <div className='landing__desc'>StockSurfer is a stock screener designed for retail and DIY investors.</div>
-          <a href='http://localhost:3001/auth/google'>
+          <a href='https://stocksurfer-server.herokuapp.com/:3001/auth/google'>
             <div className='landing__signin landing__signin--google'>
               <img src={process.env.PUBLIC_URL + '/google_icon.svg'} />
               Sign in with Google

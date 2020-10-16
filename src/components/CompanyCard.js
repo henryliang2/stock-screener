@@ -1,12 +1,14 @@
 import React, { useContext, useRef } from 'react'; // eslint-disable-next-line
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { WatchListContext } from '../App';
+import { UserContext, WatchListContext } from '../App';
 import './../styles/CompanyCard.css';
 import './../App.css';
 
 const CompanyCard = (props) => {
 
   const { watchList, setWatchList } = useContext(WatchListContext);
+
+  const { user } = useContext(UserContext);
 
   const { companyProfile } = props;
 
@@ -71,17 +73,22 @@ const CompanyCard = (props) => {
           <div className='company-card__industry'>{ companyProfile.industry }</div>
           <div className='company-card__mktCap'>Market Cap: { mktCapStr }</div>
           <div className='company-card__desc'>{ shortenedDescription }</div>
-          { 
-            !watchList.includes(companyProfile.symbol) 
-            
-            ? <button className='company-card__button company-card__button--save' onClick={() => {
-                setWatchList([...watchList, companyProfile.symbol]);
-              }}>+ Save to Collection</button>
+            { 
+              // if user is logged in, show a button to add or remove from collection
+              user.userId && (
 
-            : <button className='company-card__button company-card__button--remove' onClick={() => {
-                removeFromWatchList(companyProfile.symbol);
-              }}>+ Remove from Collection</button>
-          }
+                !watchList.includes(companyProfile.symbol) 
+                
+                ? <button className='company-card__button company-card__button--save' onClick={() => {
+                    setWatchList([...watchList, companyProfile.symbol]);
+                  }}>+ Save to Collection</button>
+
+                : <button className='company-card__button company-card__button--remove' onClick={() => {
+                    removeFromWatchList(companyProfile.symbol);
+                  }}>+ Remove from Collection</button>
+
+              )
+            }
         </div>
       </div>
     </React.Fragment>

@@ -5,11 +5,52 @@ option {
   font-size: 1rem;
 }
 
+.searchform__title-text {
+  display: block;
+  font-family: 'Heebo', 'Arial', 'sans-serif';
+  font-weight: 600;
+  font-size: 2rem;
+  position: absolute;
+  top: -50px;
+  color: white;
+}
+
 .searchform {
   display: flex;
   flex-wrap: wrap;
+  position: relative;
+  bottom: -80px;
   max-width: 1000px;
   margin: auto;
+  background: white;
+  padding-bottom: 24px;
+  
+  border-radius: 12px;
+  -webkit-box-shadow: 6px 6px 16px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 6px 6px 16px 0px rgba(0,0,0,0.75);
+  box-shadow: 6px 6px 16px 0px rgba(0,0,0,0.75);
+}
+
+.searchform_button-container {
+  flex-basis: 100%;
+  text-align: center;
+}
+
+.searchform__submit-button {
+  font-family: 'Titillium Web', 'Heebo', 'Arial', 'sans-serif';
+  font-size: 1rem;
+  background: #111b30;
+  margin: auto;
+  border: 0;
+  border-radius: 6px;
+  min-width: 200px;
+  min-height: 48px;
+  color: white;
+  cursor: pointer;
+}
+
+.searchform__submit-button:hover {
+  background: #888;
 }
 
 label {

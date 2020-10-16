@@ -69,11 +69,15 @@ const App = () => {
               </Route>
 
               <Route path='/search'>
-                <SearchForm 
-                  setQueryOptions={ setQueryOptions } 
-                  setInitialValue={ setInitialValue }
-                  runApiCall={ runApiCall } 
-                  />
+                <div className='searchform__container'>
+                  <div className='searchform__background-image'>
+                    <SearchForm 
+                      setQueryOptions={ setQueryOptions } 
+                      setInitialValue={ setInitialValue }
+                      runApiCall={ runApiCall } 
+                      />
+                  </div>
+                </div>
                 { 
                   totalResultCount > 0 &&
                   <div className='profile__resultcount'>{ totalResultCount } Results:</div>

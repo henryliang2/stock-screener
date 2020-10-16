@@ -6,6 +6,21 @@ a {
   text-decoration: none;
 }
 
+.searchform__container {
+  background: black;
+  margin-bottom: 100px;
+}
+
+.searchform__background-image {
+  margin: auto;
+  width: 90vw;
+  max-width: 1200px;
+  background: url('./search-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  padding-top: 40px;
+}
+
 .profile__container {
   width: 90vw;
   margin: auto;

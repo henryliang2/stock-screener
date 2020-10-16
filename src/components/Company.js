@@ -111,9 +111,8 @@ export const Article = (props) => {
   return (
     <div className='article' ref={articleRef}>
       <a href={ props.article.url }>
-        <div className='article__image' style={{backgroundImage : `url(${props.article.image})`}}>
-          <img 
-            src={ props.article.image } 
+        <div className='article__image'>
+          <img src={ props.article.image } 
             alt='article' 
             onLoad={() => { articleRef.current.classList.add('fade-in')}}
             />

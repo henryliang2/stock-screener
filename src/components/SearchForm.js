@@ -18,13 +18,14 @@ const SearchForm = (props) => {
   })
 
   return (
-    <form 
-      className='searchform'      
+    <form className='searchform'      
       onSubmit={(e) => { 
         e.preventDefault();
         props.runApiCall(1); 
       }}
       type='submit' >
+
+      <div className='searchform__title-text'>Find your next investment.</div>
 
       <div className='searchform__field'>
         <label htmlFor="sector">Sector</label>  
@@ -261,8 +262,10 @@ const SearchForm = (props) => {
       </select>
       </div>
 
-      <input type='submit' />
-      </form>
+      <div className='searchform_button-container'>
+        <input className='searchform__submit-button' type='submit' />
+      </div>
+    </form>
   );
 }
 

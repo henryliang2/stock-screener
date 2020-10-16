@@ -1,6 +1,8 @@
 import React, { useContext, useState, useRef, useEffect } from 'react';
 // eslint-disable-next-line
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import LibraryBooksIcon from '@material-ui/icons/LibraryBooks';
 import { UserContext } from '../App';
 import './../App.css';
 import './../styles/Navigation.css';
@@ -59,10 +61,10 @@ const Navigation = () => {
 
             <div className='nav__user-options'>
               <Link to='/userprofile'>
-                <div className='nav__collection-button'>My Collection</div>
+                <div className='nav__collection-button'><LibraryBooksIcon/>&nbsp;My Collection</div>
               </Link>
               <a href='http://localhost:3001/auth/logout'>
-                <div className='nav__collection-button'>Logout</div>
+                <div className='nav__collection-button'><ExitToAppIcon/>&nbsp;Logout</div>
               </a>
             </div>
           }

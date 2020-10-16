@@ -30,7 +30,7 @@ const Landing = (props) => {
         <div className='landing__text'>
           <div className='landing__title'>Surf the Market.</div>
           <div className='landing__desc'>StockSurfer is a stock screener designed for retail and DIY investors.</div>
-          <a href='https://stocksurfer-server.herokuapp.com/:3001/auth/google'>
+          <a href='https://stocksurfer-server.herokuapp.com/auth/google'>
             <div className='landing__signin landing__signin--google'>
               <img src={process.env.PUBLIC_URL + '/google_icon.svg'} />
               Sign in with Google

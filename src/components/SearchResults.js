@@ -14,13 +14,14 @@ const SearchResults = (props) => {
 
   return (
     <React.Fragment>
-
-      { 
-        props.totalResultCount > 0 &&
-        <div className='profile__resultcount' ref={ resultCountRef }>
-          { props.totalResultCount } Results:
-        </div>
-      }
+      
+      <div className='profile__resultcount' ref={ resultCountRef }>
+        { 
+          props.totalResultCount > 0
+          ? `${ props.totalResultCount } Results:`
+          : 'No Results Found =('
+        }
+      </div>
 
       <div className='profile__container'>
         { 

@@ -45,9 +45,14 @@ const App = () => {
     .then(jsonData => jsonData.json())
     .then(responseObject => { 
       console.log(responseObject)
-      if (responseObject.stockData.error) return null;
-      setSearchResults(responseObject.stockData) 
-      setTotalResultCount(responseObject.totalResultCount);
+      if (responseObject.stockData.error) {
+        setSearchResults([]);
+        setTotalResultCount(0);
+        return null
+      } else {
+        setSearchResults(responseObject.stockData) 
+        setTotalResultCount(responseObject.totalResultCount);
+      }
     })
   };
 

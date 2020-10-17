@@ -16,7 +16,7 @@ export const WatchListContext = React.createContext(null);
 const App = () => {
 
   // An array of retrieved companies that matches user's query
-  const [searchResults, setSearchResults] = useState([]); // use [];
+  const [searchResults, setSearchResults] = useState(dummyState); // use [];
 
   // Query options and value of the index of the first result for scraping Finviz
   const [queryOptions, setQueryOptions] = useState('');
@@ -32,17 +32,17 @@ const App = () => {
   // update DB whenever watchlist is modified
   useEffect(() => {
     if(user.userId) {
-      fetch('https://stocksurfer-server.herokuapp.com/set', {
+      fetch(`https://stocksurfer-server.netlify.app/set`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ stocks: watchList }),
         credentials: 'include'
       })
     }
-  })
+  }, [watchList])
 
   const runApiCall = (startNum) => {
-    fetch(`https://stocksurfer-server.herokuapp.com/search/${startNum}/${queryOptions}`)
+    fetch(`https://stocksurfer-server.netlify.app/search/${startNum}/${queryOptions}`)
     .then(jsonData => jsonData.json())
     .then(responseObject => { 
       console.log(responseObject)
@@ -69,15 +69,11 @@ const App = () => {
               </Route>
 
               <Route path='/search'>
-                <div className='searchform__container'>
-                  <div className='searchform__background-image'>
-                    <SearchForm 
-                      setQueryOptions={ setQueryOptions } 
-                      setInitialValue={ setInitialValue }
-                      runApiCall={ runApiCall } 
-                      />
-                  </div>
-                </div>
+                <SearchForm 
+                  setQueryOptions={ setQueryOptions } 
+                  setInitialValue={ setInitialValue }
+                  runApiCall={ runApiCall } 
+                  />
                 { 
                   totalResultCount > 0 &&
                   <div className='profile__resultcount'>{ totalResultCount } Results:</div>

@@ -5,30 +5,28 @@ option {
   font-size: 1rem;
 }
 
+.searchform__container {
+  background: #111b30;
+  margin-bottom: 100px;
+  padding: 24px;
+}
+
 .searchform__title-text {
   display: block;
+  text-align: center;
+  margin: auto;
   font-family: 'Titillium Web', 'Heebo', 'Arial', 'sans-serif';
   font-weight: 600;
   font-size: 2rem;
-  position: absolute;
-  top: -50px;
   color: white;
 }
 
 .searchform {
   display: flex;
   flex-wrap: wrap;
-  position: relative;
-  bottom: -80px;
-  max-width: 1000px;
+  max-width: 1200px;
   margin: auto;
-  background: white;
-  padding-bottom: 24px;
-  
-  border-radius: 12px;
-  -webkit-box-shadow: 6px 6px 16px 0px rgba(0,0,0,0.75);
-  -moz-box-shadow: 6px 6px 16px 0px rgba(0,0,0,0.75);
-  box-shadow: 6px 6px 16px 0px rgba(0,0,0,0.75);
+  background: #111b30;
 }
 
 .searchform_button-container {
@@ -37,27 +35,27 @@ option {
 }
 
 .searchform__submit-button {
+  min-width: 200px;
+  min-height: 48px;
   font-family: 'Titillium Web', 'Heebo', 'Arial', 'sans-serif';
   font-size: 1rem;
-  background: #111b30;
+  color: black;
+  background: white;
   margin: auto;
   border: 0;
   border-radius: 6px;
-  min-width: 200px;
-  min-height: 48px;
-  color: white;
   cursor: pointer;
 }
 
 .searchform__submit-button:hover {
-  background: #888;
+  background: #ccc;
 }
 
 label {
   font-family: 'Heebo', 'Arial', 'sans-serif';
   font-size: 1.1rem;
   display: block;
-  color: #888;
+  color: white;
 }
 
 .searchform__field {

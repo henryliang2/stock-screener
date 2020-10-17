@@ -7,23 +7,9 @@ a {
   outline: none;
 }
 
-.searchform__container {
-  background: black;
-  margin-bottom: 100px;
-}
-
-.searchform__background-image {
-  margin: auto;
-  width: 90vw;
-  max-width: 1200px;
-  background: url('./search-bg.jpg');
-  background-size: cover;
-  background-position: center;
-  padding-top: 40px;
-}
-
 .profile__container {
   width: 90vw;
+  max-width: 1200px;
   margin: auto;
   display: grid;
   grid-template-columns: 1fr 1fr;

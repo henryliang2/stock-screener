@@ -20,6 +20,9 @@ const App = () => {
   // Query options and value of the index of the first result for scraping Finviz
   const [queryOptions, setQueryOptions] = useState('');
   const [initialValue, setInitialValue] = useState(1);
+
+  // number of results returned from Finviz
+  // intialize to 0; set to -1 if query run and no results
   const [totalResultCount, setTotalResultCount] = useState(0);
 
   // Object containing authenticated user information
@@ -47,7 +50,7 @@ const App = () => {
       console.log(responseObject)
       if (responseObject.stockData.error) {
         setSearchResults([]);
-        setTotalResultCount(0);
+        setTotalResultCount(-1);
         return null
       } else {
         setSearchResults(responseObject.stockData) 

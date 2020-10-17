@@ -16,11 +16,8 @@ const SearchResults = (props) => {
     <React.Fragment>
       
       <div className='profile__resultcount' ref={ resultCountRef }>
-        { 
-          props.totalResultCount > 0
-          ? `${ props.totalResultCount } Results:`
-          : 'No Results Found =('
-        }
+        { props.totalResultCount > 0 && `${ props.totalResultCount } Results:`}
+        { props.totalResultCount < 0 && 'No Results Found =(' }
       </div>
 
       <div className='profile__container'>

@@ -16,8 +16,17 @@ const SearchResults = (props) => {
     <React.Fragment>
       
       <div className='profile__resultcount' ref={ resultCountRef }>
-        { props.totalResultCount > 0 && `${ props.totalResultCount } Results:`}
-        { props.totalResultCount < 0 && 'No Results Found =(' }
+        { // If < 20 results, display number of results on page
+          (props.totalResultCount > 0 && searchResults.length < 20) && 
+            `${ searchResults.length } Results:`
+        }
+        { // If >= 20 results, total result count returned from Finviz
+          (props.totalResultCount > 0 && searchResults.length >= 20) && 
+            `${ props.totalResultCount } Results:`
+        }
+        { // If no results (totalResultCount set to -1), display 'no results found'
+          (props.totalResultCount < 0 ) && 'No Results Found =(' 
+        }
       </div>
 
       <div className='profile__container'>
@@ -30,7 +39,7 @@ const SearchResults = (props) => {
 
       
       { // If there are more results, show a 'next page' button
-        props.initialValue < props.totalResultCount &&
+        (props.initialValue + 20) < props.totalResultCount &&
         <div className='profile__button-container'>
           <button className='profile__button'
             onClick={ () => { 

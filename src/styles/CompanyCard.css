@@ -104,12 +104,6 @@
   max-height: 240px;
 }
 
-.company-card__link {
-  text-align: center;
-  color: turquoise;
-  font-size: 2rem;
-}
-
 .company-card__button {
   display: block;
   margin-top: 12px;

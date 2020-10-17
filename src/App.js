@@ -16,12 +16,12 @@ export const WatchListContext = React.createContext(null);
 const App = () => {
 
   // An array of retrieved companies that matches user's query
-  const [searchResults, setSearchResults] = useState([]); // use [];
+  const [searchResults, setSearchResults] = useState(dummyState); // use [];
 
   // Query options and value of the index of the first result for scraping Finviz
   const [queryOptions, setQueryOptions] = useState('');
   const [initialValue, setInitialValue] = useState(1);
-  const [totalResultCount, setTotalResultCount] = useState(0);
+  const [totalResultCount, setTotalResultCount] = useState(225);
 
   // Object containing authenticated user information
   const [user, setUser] = useState({});

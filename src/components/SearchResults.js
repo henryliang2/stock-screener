@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from 'react';
+import React, { useContext, useRef, useEffect } from 'react';
 import { SearchResultContext } from './../App'
 import CompanyCard from './CompanyCard';
 import { withStyles } from "@material-ui/core/styles";
@@ -10,6 +10,8 @@ const SearchResults = (props) => {
   const resultCountRef = useRef(null);
 
   const { searchResults, setSearchResults } = useContext(SearchResultContext);
+
+  useEffect(() => { setSearchResults([])}, []) // empty out search results on first load
 
   return (
     <React.Fragment>

@@ -41,19 +41,16 @@ const Navigation = () => {
 
           ? <div className='nav__user-button' onClick={() => { if(user.userId) setShowDropdown(!showDropdown) }}>
               <div className='nav__user'>
-                <React.Fragment>
-                  <div className='nav__user-image'><img src={user.image} alt='user'/></div>
-                  <div className='nav__user-name'>{user.displayName}</div>
-                </React.Fragment>
+                <div className='nav__user-image'><img src={user.image} alt='user'/></div>
+                <div className='nav__user-name'>{user.displayName}</div>
               </div>
             </div>
 
-          : <a href={`https://stocksurfer-server.herokuapp.com/auth/google`}>
-              <div className='landing__signin landing__signin--google'>
-                <img src={process.env.PUBLIC_URL + '/google_icon.svg'} alt='google-icon' />
-                Sign in with Google
+          : <Link to='/'>
+              <div className='nav__logo'>
+                Sign in to create a collection
               </div>
-            </a>
+            </Link>
         }
           
 

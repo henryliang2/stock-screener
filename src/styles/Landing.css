@@ -8,7 +8,7 @@
 }
 
 .landing__container {
-  width: 100%;
+  width: 90vw;
   max-width: 1200px;
   height: 90vh;
 
@@ -36,6 +36,21 @@
 .landing__image > img {
   max-width: 100%;
   max-height: 100%;
+}
+
+@media only screen and (max-width: 1024px) {
+
+  .landing__container {
+    grid-template-columns: 1fr;
+  }
+
+  .landing__text {
+    text-align: center;
+  }
+
+  .landing__image {
+    display: none;
+  }
 }
 
 .landing__signin {

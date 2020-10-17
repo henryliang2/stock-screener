@@ -46,11 +46,11 @@ const Navigation = () => {
               </div>
             </div>
 
-          : <Link to='/'>
+          : <a href={`https://stocksurfer-server.herokuapp.com/auth/google`}>
               <div className='nav__logo'>
                 Sign in to create a collection
               </div>
-            </Link>
+            </a>
         }
           
 

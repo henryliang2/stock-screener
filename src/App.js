@@ -41,7 +41,7 @@ const App = () => {
         credentials: 'include'
       })
     }
-  }, [watchList])
+  }, [watchList]) // eslint-disable-line
 
   const runApiCall = (startNum) => {
     fetch(`https://stocksurfer-server.herokuapp.com/search/${startNum}/${queryOptions}`)
@@ -68,7 +68,7 @@ const App = () => {
           <Navigation />
 
           <Switch>
-            <SearchResultContext.Provider value={ searchResults }>
+            <SearchResultContext.Provider value={ { searchResults, setSearchResults } }>
             <WatchListContext.Provider value={ { watchList, setWatchList } }>
 
               <Route exact path="/">
@@ -77,6 +77,7 @@ const App = () => {
 
               <Route path='/search'>
                 <SearchForm 
+                  setTotalResultCount = { setTotalResultCount }
                   setQueryOptions={ setQueryOptions } 
                   setInitialValue={ setInitialValue }
                   runApiCall={ runApiCall } 

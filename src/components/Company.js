@@ -10,7 +10,7 @@ const Company = (props) => {
   const { id } = useParams();
   const symbol = id;
 
-  const searchResults = useContext(SearchResultContext);
+  const { searchResults }  = useContext(SearchResultContext);
   const {watchList, setWatchList} = useContext(WatchListContext);
 
   const [companyProfile, setCompanyProfile] = useState({});
@@ -39,7 +39,7 @@ const Company = (props) => {
     .then(data => { 
       setNewsArticles(data.newsArray)
     });
-  }, [])
+  }, []) // eslint-disable-line
   
   return (
     <div className='company'>

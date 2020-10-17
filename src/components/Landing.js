@@ -22,7 +22,7 @@ const Landing = (props) => {
       setUser(returnedUser);
       setWatchList(returnedUser.stocks)
     })
-  }, []);
+  }, []); // eslint-disable-line
 
   return (
     <div className='landing'>

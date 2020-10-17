@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react'; // eslint-disable-next-line
+import React, { useState, useEffect, useContext } from 'react'; // eslint-disable-next-line
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { SearchResultContext } from '../App';
 import './../styles/SearchForm.css';
 import { 
   sectorOption, 
@@ -17,6 +18,8 @@ const SearchForm = (props) => {
   const [dividendYield, setDividendYield] = useState('');
   const [trailingPE, setTrailingPE] = useState('');
 
+  const { setSearchResults } = useContext(SearchResultContext);
+
   useEffect(() => { // update query options whenever a state is changed
     const queryStr = [sector, industry, marketCap, dividendYield, trailingPE]
       .filter(criteria => criteria) // only added to string if criteria exists (ie. truthy)
@@ -32,6 +35,8 @@ const SearchForm = (props) => {
     <form className='searchform'      
       onSubmit={(e) => { 
         e.preventDefault();
+        props.setTotalResultCount(0);
+        setSearchResults([]);
         props.setInitialValue(1);
         props.runApiCall(1); 
       }}

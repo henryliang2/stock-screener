@@ -7,8 +7,7 @@ const Fundamentals = (props) => {
   const [marketCap, setMarketCap] = useState('');
   const [avgVolume, setAvgVolume] = useState('');
 
-  useEffect(() => {
-    console.log('NOPE')
+  useEffect(() => { // eslint-disable-line
     // Format the market cap to use Million/Billion/Trillion
     const mktCapStrLength = props.mktCap.toString().length;
     let mktCapStr = '';
@@ -20,7 +19,7 @@ const Fundamentals = (props) => {
 
     // Format Avg Volume by adding commas
     setAvgVolume(props.volAvg.toLocaleString());
-  })
+  }) 
 
   return (
     <div className='fundamentals'>

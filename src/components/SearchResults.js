@@ -8,7 +8,7 @@ const SearchResults = (props) => {
 
   const resultCountRef = useRef(null);
 
-  const searchResults = useContext(SearchResultContext);
+  const { searchResults } = useContext(SearchResultContext);
 
   console.log(props.initialValue, props.totalResultCount)
 

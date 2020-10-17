@@ -99,8 +99,8 @@
 .company-card__desc {
   font-family: 'Open Sans', 'Arial', 'sans-serif';
   font-weight: 300;
-  font-size: 1rem;
-  line-height: 1.1rem;
+  font-size: 0.9rem;
+  line-height: 1.2rem;
   max-height: 240px;
 }
 

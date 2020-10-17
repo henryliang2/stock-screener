@@ -51,6 +51,22 @@ option {
   background: #ccc;
 }
 
+select {
+  -webkit-appearance: none;
+  appearance: none;
+  border: none;
+  background-image: url('./../resources/select-arrow-bg.png');
+  background-position: right center;
+  padding: 4px;
+  color: white;
+  font-size: 1rem;
+}
+
+option {
+  background-color: #274958;
+  margin-top: 12px;
+}
+
 label {
   font-family: 'Heebo', 'Arial', 'sans-serif';
   font-size: 1.1rem;

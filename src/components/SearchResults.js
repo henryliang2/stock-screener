@@ -17,11 +17,11 @@ const SearchResults = (props) => {
       
       <div className='profile__resultcount' ref={ resultCountRef }>
         { // If < 20 results, display number of results on page
-          (props.totalResultCount > 0 && searchResults.length < 20) && 
+          (props.totalResultCount > 0 && props.totalResultCount < 20) && 
             `${ searchResults.length } Results:`
         }
         { // If >= 20 results, total result count returned from Finviz
-          (props.totalResultCount > 0 && searchResults.length >= 20) && 
+          (props.totalResultCount > 0 && props.totalResultCount >= 20) && 
             `${ props.totalResultCount } Results:`
         }
         { // If no results (totalResultCount set to -1), display 'no results found'

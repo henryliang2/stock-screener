@@ -16,7 +16,7 @@ const Company = (props) => {
   const [newsArticles, setNewsArticles] = useState([]);
   const [priceChange, setPriceChange] = useState('');
 
-  // extract current company profile from prop (which is an array of all companies)
+  // extract current company profile from FMP
   useEffect(() => {
     fetch(`https://stocksurfer-server.herokuapp.com/companies/${symbol}`)
     .then(jsonData => jsonData.json())
@@ -29,7 +29,7 @@ const Company = (props) => {
       setPriceChange(change);
     })
     .catch(err => { console.log(err)});
-  })
+  }, []) // eslint-disable-line
 
   // fetch news articles from Finnhub API
   useEffect(() => {

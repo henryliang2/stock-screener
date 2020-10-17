@@ -32,7 +32,7 @@ const App = () => {
   // update DB whenever watchlist is modified
   useEffect(() => {
     if(user.userId) {
-      fetch(`https://stocksurfer-server.netlify.app/set`, {
+      fetch(`https://stocksurfer-server.herokuapp.com/set`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ stocks: watchList }),
@@ -42,7 +42,7 @@ const App = () => {
   }, [watchList])
 
   const runApiCall = (startNum) => {
-    fetch(`https://stocksurfer-server.netlify.app/search/${startNum}/${queryOptions}`)
+    fetch(`https://stocksurfer-server.herokuapp.com/search/${startNum}/${queryOptions}`)
     .then(jsonData => jsonData.json())
     .then(responseObject => { 
       console.log(responseObject)

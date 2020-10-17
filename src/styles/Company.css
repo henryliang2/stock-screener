@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 
 .company {
   margin: auto;
@@ -86,7 +86,7 @@
   margin-left: 6px;
 }
 
-.company__info {
+.company__main {
   display: grid;
   grid-template-columns: 1fr 1fr;
   font-family: 'Lato', 'Arial', 'sans-serif';

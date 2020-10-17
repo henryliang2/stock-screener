@@ -20,7 +20,7 @@
 }
 
 .userprofile__name {
-  font-family: 'Titillium Web', 'Heebo', 'Arial', 'sans-serif';
+  font-family: inherit;
   font-size: 2rem;
   color: black;
   margin-left: 24px;

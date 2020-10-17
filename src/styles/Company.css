@@ -1,12 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
 
 .company {
   margin: auto;
   width: 100%;
   max-width: 1200px;
+  font-family: 'Lato', 'Arial', 'sans-serif';
 }
 
 .company__header {
+  font-family: 'Lato', 'Arial', 'sans-serif';
   display: flex;
   justify-content: space-between;
   margin: 24px;
@@ -36,14 +38,14 @@
 }
 
 .company__headerinfo {
-  font-family: 'Heebo', 'Arial', 'sans-serif';
+  font-family: 'Lato', 'Arial', 'sans-serif';
   margin-left: 48px;
   display: inline-block;
   padding-top: 12px;
 }
 
 .company__description {
-  font-family: 'Titillium Web', 'Heebo', 'Arial', 'Helvetica', 'sans-serif';
+  font-family: 'Lato', 'Arial', 'sans-serif';
   font-weight: 300;
   padding-right: 48px;
 }
@@ -53,27 +55,27 @@
 }
 
 .company__name {
-  font-family: 'Titillium Web', 'Heebo', 'Arial', 'Helvetica', 'sans-serif';
+  font-family: 'Lato', 'Arial', 'sans-serif';
   font-weight: 400;
   font-size: 2.6rem;
 }
 
 .company__symbol {
-  font-family: inherit;
+  font-family: 'Lato', 'Arial', 'sans-serif';
   font-size: 1.2rem;
   color: #888;
   display: inline-block;
 }
 
 .company__price {
-  font-family: inherit;
+  font-family: 'Lato', 'Arial', 'sans-serif';
   font-size: 1.2rem;
   display: inline-block;
   margin-left: 48px;
 }
 
 .company__priceChange {
-  font-family: inherit;
+  font-family: 'Lato', 'Arial', 'sans-serif';
   font-size: 1.2rem;
   display: inline-block;
   margin-left: 6px;
@@ -82,9 +84,11 @@
 .company__info {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  font-family: 'Lato', 'Arial', 'sans-serif';
 }
 
 .company__info-line {
+  font-family: 'Lato', 'Arial', 'sans-serif';
   margin-top: 12px;
 }
 
@@ -95,7 +99,7 @@
 }
 
 .fundamentals__container {
-  font-family: 'Heebo', 'Arial', 'sans-serif';
+  font-family: 'Lato', 'Arial', 'sans-serif';
   display: inline-block;
   margin: 0 24px;
   align-self: center;
@@ -107,7 +111,7 @@
 
 .article {
   opacity: 0;
-  font-family: 'Titillium Web', 'Heebo', 'Arial', 'Helvetica', 'sans-serif';
+  font-family: 'Lato', 'Arial', 'sans-serif';
   display: flex;
   margin-bottom: 24px;
 }
@@ -121,9 +125,9 @@
 }
 
 .article__headline {
-  font-family: inherit;
+  font-family: 'Lato', 'Arial', 'sans-serif';
   font-size: 1.1rem;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .article__headline > a:hover {
@@ -131,13 +135,13 @@
 }
 
 .article__summary {
-  font-family: inherit;
+  font-family: 'Lato', 'Arial', 'sans-serif';
   font-weight: 300;
   font-size: 0.9rem;
 }
 
 .article__source {
-  font-family: inherit;
+  font-family: 'Lato', 'Arial', 'sans-serif';
   font-size: 0.9rem;
   color: #888;
 }

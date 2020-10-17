@@ -95,10 +95,6 @@ const Company = (props) => {
           }
         </div>
       </div>
-    
-    <button onClick={() => {console.log(companyProfile)}}>companyProfile</button>
-    <button onClick={() => {console.log(newsArticles)}}>newsArticles</button>
-
     </div>
   );
 

@@ -32,7 +32,7 @@ const Landing = (props) => {
           <div className='landing__desc'>StockSurfer is a stock screener designed for retail and DIY investors.</div>
           <a href={`https://stocksurfer-server.netlify.app/auth/google`}>
             <div className='landing__signin landing__signin--google'>
-              <img src={process.env.PUBLIC_URL + '/google_icon.svg'} />
+              <img src={process.env.PUBLIC_URL + '/google_icon.svg'} alt='google-icon'/>
               Sign in with Google
             </div>
           </a>

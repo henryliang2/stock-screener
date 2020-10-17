@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useRef } from 'react';
 import { SearchResultContext } from './../App'
 import CompanyCard from './CompanyCard';
 import './../App.css';
@@ -6,12 +6,21 @@ import './../App.css';
 
 const SearchResults = (props) => {
 
+  const resultCountRef = useRef(null);
+
   const searchResults = useContext(SearchResultContext);
 
   console.log(props.initialValue, props.totalResultCount)
 
   return (
     <React.Fragment>
+
+      { 
+        props.totalResultCount > 0 &&
+        <div className='profile__resultcount' ref={ resultCountRef }>
+          { props.totalResultCount } Results:
+        </div>
+      }
 
       <div className='profile__container'>
         { 
@@ -29,6 +38,7 @@ const SearchResults = (props) => {
             onClick={ () => { 
               props.runApiCall(props.initialValue + 20);
               props.setInitialValue(props.initialValue + 20);
+              resultCountRef.current.scrollIntoView({ behaviour: 'smooth'});
             }}> 
             Next Page
           </button>

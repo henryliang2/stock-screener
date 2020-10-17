@@ -8,6 +8,7 @@ const Fundamentals = (props) => {
   const [avgVolume, setAvgVolume] = useState('');
 
   useEffect(() => {
+    console.log('NOPE')
     // Format the market cap to use Million/Billion/Trillion
     const mktCapStrLength = props.mktCap.toString().length;
     let mktCapStr = '';

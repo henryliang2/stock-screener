@@ -265,7 +265,7 @@ const SearchForm = (props) => {
       </div>
 
       <div className='searchform_button-container'>
-        <input className='searchform__submit-button' type='submit' />
+        <input className='searchform__submit-button' value='Search' type='submit' />
       </div>
     </form>
   </div>

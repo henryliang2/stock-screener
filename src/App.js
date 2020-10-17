@@ -21,7 +21,7 @@ const App = () => {
   // Query options and value of the index of the first result for scraping Finviz
   const [queryOptions, setQueryOptions] = useState('');
   const [initialValue, setInitialValue] = useState(1);
-  const [totalResultCount, setTotalResultCount] = useState(0);
+  const [totalResultCount, setTotalResultCount] = useState(2806);
 
   // Object containing authenticated user information
   const [user, setUser] = useState({});
@@ -74,10 +74,6 @@ const App = () => {
                   setInitialValue={ setInitialValue }
                   runApiCall={ runApiCall } 
                   />
-                { 
-                  totalResultCount > 0 &&
-                  <div className='profile__resultcount'>{ totalResultCount } Results:</div>
-                }
                 <SearchResults 
                   initialValue={ initialValue }
                   totalResultCount={ totalResultCount }

@@ -35,7 +35,7 @@ const SearchForm = (props) => {
     <form className='searchform'      
       onSubmit={(e) => { 
         e.preventDefault();
-        props.setTotalResultCount(0);
+        props.setTotalResultCount(-2); // set to show 'Loading ..'
         setSearchResults([]);
         props.setInitialValue(1);
         props.runApiCall(1); 

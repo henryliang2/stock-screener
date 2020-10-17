@@ -8,7 +8,7 @@ const SearchResults = (props) => {
 
   const resultCountRef = useRef(null);
 
-  const { searchResults } = useContext(SearchResultContext);
+  const { searchResults, setSearchResults } = useContext(SearchResultContext);
 
   console.log(props.initialValue, props.totalResultCount)
 
@@ -25,7 +25,10 @@ const SearchResults = (props) => {
             `${ props.totalResultCount } Results:`
         }
         { // If no results (totalResultCount set to -1), display 'no results found'
-          (props.totalResultCount < 0 ) && 'No Results Found =(' 
+          (props.totalResultCount === -1 ) && 'No Results Found =(' 
+        }
+        { // If no results (totalResultCount set to -1), display 'no results found'
+          (props.totalResultCount === -2 ) && 'Searching ...' 
         }
       </div>
 
@@ -43,6 +46,8 @@ const SearchResults = (props) => {
         <div className='profile__button-container'>
           <button className='profile__button'
             onClick={ () => { 
+              setSearchResults([]);
+              props.setTotalResultCount(-2);
               props.runApiCall(props.initialValue + 20);
               props.setInitialValue(props.initialValue + 20);
               resultCountRef.current.scrollIntoView({ behaviour: 'smooth'});

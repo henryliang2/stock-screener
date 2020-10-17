@@ -85,6 +85,7 @@ const App = () => {
                 <SearchResults 
                   initialValue={ initialValue }
                   totalResultCount={ totalResultCount }
+                  setTotalResultCount = { setTotalResultCount }
                   setInitialValue={ setInitialValue }
                   runApiCall={ runApiCall }
                   />

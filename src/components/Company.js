@@ -76,10 +76,10 @@ const Company = (props) => {
         }
       </div>
 
-      <div className='company__info'>
-        <div className='company__description'>
+      <div className='company__main'>
+        <div className='company__info'>
           <div className='company__name'>Company Information</div>
-          <div>{ companyProfile.description }</div>
+          <div className='company__description'>{ companyProfile.description }</div>
           <div className='company__info-line'>Sector: { companyProfile.sector }</div>
           <div className='company__info-line'>Industry: { companyProfile.industry }</div>
           <div className='company__info-line'>IPO Date: { companyProfile.ipoDate }</div>

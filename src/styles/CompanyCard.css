@@ -4,7 +4,6 @@
   padding: 24px;
   font-family: inherit;
   background: white;
-  border-radius: 6px;
   display: grid;
   grid-template-columns: 3fr 7fr;
   opacity: 0;
@@ -13,6 +12,18 @@
 .company-card__leftcol {
   border-left: 2px solid turquoise;
   padding: 0 18px;
+  margin-bottom: 12px;
+}
+
+@media only screen and (max-width: 640px){
+  .company-card {
+    margin: 24px 0;
+    border-left: 2px solid turquoise;
+    grid-template-columns: 1fr;
+  }
+  .company-card__leftcol {
+    border: none;
+  }
 }
 
 .company-card__leftcol > a:hover {

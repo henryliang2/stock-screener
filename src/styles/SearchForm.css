@@ -23,9 +23,21 @@ option {
 .searchform {
   display: flex;
   flex-wrap: wrap;
-  max-width: 1200px;
+  max-width: 900px;
   margin: auto;
   background: #111b30;
+}
+
+.searchform__field {
+  display: inline-block;
+  flex-grow: 1;
+  margin: 24px 48px;
+}
+
+@media only screen and (max-width: 640px) {
+  .searchform__field {
+    margin: 24px 12px;
+  }
 }
 
 .searchform_button-container {
@@ -54,6 +66,7 @@ select {
   -webkit-appearance: none;
   appearance: none;
   border: none;
+  width: 100%;
   background-image: url('./../resources/select-arrow-bg.png');
   background-position: right center;
   padding: 4px;
@@ -71,9 +84,4 @@ label {
   font-size: 1.1rem;
   display: block;
   color: white;
-}
-
-.searchform__field {
-  display: inline-block;
-  margin: 24px 48px;
 }

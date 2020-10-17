@@ -6,6 +6,7 @@ import Navigation from './components/Navigation';
 import SearchResults from './components/SearchResults';
 import Company from './components/Company';
 import UserProfile from './components/UserProfile.js';
+import dummyState from './dummy'
 import './App.css';
 
 export const UserContext = React.createContext(null);
@@ -15,7 +16,7 @@ export const WatchListContext = React.createContext(null);
 const App = () => {
 
   // An array of retrieved companies that matches user's query
-  const [searchResults, setSearchResults] = useState([]); // use [];
+  const [searchResults, setSearchResults] = useState(dummyState); // use [];
 
   // Query options and value of the index of the first result for scraping Finviz
   const [queryOptions, setQueryOptions] = useState('');

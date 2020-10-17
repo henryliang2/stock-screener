@@ -1,10 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { UserContext, WatchListContext } from './../App';
+import { UserContext, WatchListContext, SearchResultContext } from './../App';
 import CompanyCard from './CompanyCard';
 import './../App.css'
 import './../styles/UserProfile.css';
 
 const UserProfile = () => {
+
+  const { setSearchResults } = useContext(SearchResultContext);
 
   const { watchList } = useContext(WatchListContext);
 
@@ -20,6 +22,7 @@ const UserProfile = () => {
       .then(responseObject => { 
         console.log(responseObject)
         if (responseObject.stockData.error) return null;
+        setSearchResults(responseObject.stockData);
         setCollection(responseObject.stockData);
       })
     }

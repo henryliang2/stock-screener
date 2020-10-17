@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext, useRef } from 'react'; // eslint-disable-next-line
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import { WatchListContext } from './../App'
+import { SearchResultContext, WatchListContext } from './../App'
 import Fundamentals from './Fundamentals';
 import './../styles/Company.css'
 
@@ -10,26 +10,27 @@ const Company = (props) => {
   const { id } = useParams();
   const symbol = id;
 
+  const { searchResults }  = useContext(SearchResultContext);
   const {watchList, setWatchList} = useContext(WatchListContext);
 
   const [companyProfile, setCompanyProfile] = useState({});
   const [newsArticles, setNewsArticles] = useState([]);
   const [priceChange, setPriceChange] = useState('');
 
-  // extract current company profile from FMP
+  // extract current company profile from prop (which is an array of all companies)
   useEffect(() => {
-    fetch(`https://stocksurfer-server.herokuapp.com/companies/${symbol}`)
-    .then(jsonData => jsonData.json())
-    .then(result => {
-      setCompanyProfile(result.stockData);
+    searchResults.forEach(result => {
+      if (Object.values(result).includes(symbol)) {
+        setCompanyProfile(result);
 
-      let change = result.stockData.changes.toFixed(2);
-      if(Math.sign(change) === 1 || Math.sign(change) === 0) change = `(+${change.toString()}%)`;
-      else change = `(${change.toString()}%)`;
-      setPriceChange(change);
-    })
-    .catch(err => { console.log(err)});
-  }, []) // eslint-disable-line
+        // Format the price change for color and pos/neg
+        let change = result.changes.toFixed(2);
+        if(Math.sign(change) === 1 || Math.sign(change) === 0) change = `(+${change.toString()}%)`;
+        else change = `(${change.toString()}%)`;
+        setPriceChange(change);
+      }
+    });
+  })
 
   // fetch news articles from Finnhub API
   useEffect(() => {

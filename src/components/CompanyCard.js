@@ -21,9 +21,6 @@ const CompanyCard = (props) => {
     setWatchList(updatedList);
   }
 
-  // return blank card if no description or industry
-  if (!companyProfile.description || !companyProfile.industry) return null;
-
   // Formatting Price Change Percentage String
   let change = companyProfile.changes.toFixed(2);
   if(Math.sign(change) === 1 || Math.sign(change) === 0) change = `(+${change.toString()}%)`;

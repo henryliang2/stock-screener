@@ -53,8 +53,12 @@ const App = () => {
         setSearchResults([]);
         setTotalResultCount(-1);
         return null
-      } else {
-        setSearchResults(responseObject.stockData) 
+      } 
+      else {
+        const filteredStocks = responseObject.stockData.filter(stock => {
+          return (stock.description && stock.industry)
+        })
+        setSearchResults(filteredStocks) 
         setTotalResultCount(responseObject.totalResultCount);
       }
     })

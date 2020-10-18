@@ -48,7 +48,7 @@ const SearchForm = (props) => {
           <option defaultValue="selected" value="">Any</option>
           {
             Object.keys(sectorOption).map(key => {
-              return <option value={key}>{sectorOption[key]}</option>
+              return <option key={i} value={key}>{sectorOption[key]}</option>
             })
           }
         </select>
@@ -59,7 +59,7 @@ const SearchForm = (props) => {
         <option defaultValue="ind_stocksonly">Any</option>
         {
           Object.keys(industryOption).map(key => {
-            return <option value={key}>{industryOption[key]}</option>
+            return <option key={i} value={key}>{industryOption[key]}</option>
           })
         }
       </select>
@@ -71,7 +71,7 @@ const SearchForm = (props) => {
         <option defaultValue=''>Any</option>
         {
           Object.keys(dividendYieldOption).map(key => {
-            return <option value={key}>{dividendYieldOption[key]}</option>
+            return <option key={i} value={key}>{dividendYieldOption[key]}</option>
           })
         }
       </select>
@@ -83,7 +83,7 @@ const SearchForm = (props) => {
         <option defaultValue=''>Any</option>
         {
           Object.keys(marketCapOption).map(key => {
-            return <option value={key}>{marketCapOption[key]}</option>
+            return <option key={i} value={key}>{marketCapOption[key]}</option>
           })
         }
       </select>
@@ -95,7 +95,7 @@ const SearchForm = (props) => {
         <option defaultValue=''>Any</option>
         {
           Object.keys(trailingPEOption).map(key => {
-            return <option value={key}>{trailingPEOption[key]}</option>
+            return <option key={i} value={key}>{trailingPEOption[key]}</option>
           })
         }
       </select>

@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useEffect } from 'react';
+import React, { useContext, useRef, useEffect, useState } from 'react';
 import { SearchResultContext } from './../App'
 import CompanyCard from './CompanyCard';
 import { withStyles } from "@material-ui/core/styles";
@@ -8,14 +8,23 @@ import './../App.css';
 const SearchResults = (props) => {
 
   const resultCountRef = useRef(null);
+  const profileContainerRef = useRef(null);
 
   const { searchResults, setSearchResults } = useContext(SearchResultContext);
+
+  // number of results visible to user
+  const [resultsVisible, setResultsVisible] = useState(0);
 
   // clean slate, empty any previous search results on first load
   useEffect(() => { 
     setSearchResults([]);
     props.setTotalResultCount(0);
   }, []) 
+
+  // updated state representing number of results visible to user
+  useEffect(() => {
+    setResultsVisible(profileContainerRef.current.children.length);
+  }, [profileContainerRef])
 
   return (
     <React.Fragment>
@@ -26,7 +35,7 @@ const SearchResults = (props) => {
       <div className='profile__resultcount' ref={ resultCountRef }>
         { // If < 20 results, display number of results on page
           (props.totalResultCount > 0 && props.totalResultCount < 20) && 
-            `${ searchResults.length } Results:`
+            `${ resultsVisible } Results:`
         }
         { // If >= 20 results, total result count returned from Finviz
           (props.totalResultCount > 0 && props.totalResultCount >= 20) && 
@@ -37,13 +46,15 @@ const SearchResults = (props) => {
         }
       </div>
 
-      <div className='profile__container'>
+      <div className='profile__container' ref={ profileContainerRef }>
         { 
           searchResults.map((companyProfile, i) => {
             return <CompanyCard key={i} companyProfile={ companyProfile } />
           })
         }
       </div>
+
+    <button onClick={() => console.log(profileContainerRef)}> Click</button>
 
       
       { // If there are more results, show a 'next page' button

@@ -47,7 +47,7 @@ const SearchForm = (props) => {
         <select name='Sector' id='sector' value={ sector } onChange={(e) => setSector(e.target.value)}>
           <option defaultValue="selected" value="">Any</option>
           {
-            Object.keys(sectorOption).map(key => {
+            Object.keys(sectorOption).map((key, i) => {
               return <option key={i} value={key}>{sectorOption[key]}</option>
             })
           }
@@ -58,7 +58,7 @@ const SearchForm = (props) => {
         <select name='Industry' id='industry' value={ industry } onChange={(e) => setIndustry(e.target.value)}>
         <option defaultValue="ind_stocksonly">Any</option>
         {
-          Object.keys(industryOption).map(key => {
+          Object.keys(industryOption).map((key, i) => {
             return <option key={i} value={key}>{industryOption[key]}</option>
           })
         }
@@ -70,7 +70,7 @@ const SearchForm = (props) => {
         <select name='Dividend Yield' id='dividend-yield' value={ dividendYield } onChange={(e) => setDividendYield(e.target.value)}>
         <option defaultValue=''>Any</option>
         {
-          Object.keys(dividendYieldOption).map(key => {
+          Object.keys(dividendYieldOption).map((key, i) => {
             return <option key={i} value={key}>{dividendYieldOption[key]}</option>
           })
         }
@@ -82,7 +82,7 @@ const SearchForm = (props) => {
         <select name='Market Cap' id='market-cap' value={ marketCap } onChange={(e) => setMarketCap(e.target.value)}>
         <option defaultValue=''>Any</option>
         {
-          Object.keys(marketCapOption).map(key => {
+          Object.keys(marketCapOption).map((key, i) => {
             return <option key={i} value={key}>{marketCapOption[key]}</option>
           })
         }
@@ -94,7 +94,7 @@ const SearchForm = (props) => {
         <select name='Trailing P/E' id='trailing-pe' value={ trailingPE } onChange={(e) => setTrailingPE(e.target.value)}>
         <option defaultValue=''>Any</option>
         {
-          Object.keys(trailingPEOption).map(key => {
+          Object.keys(trailingPEOption).map((key, i) => {
             return <option key={i} value={key}>{trailingPEOption[key]}</option>
           })
         }

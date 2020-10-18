@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext, useRef } from 'react'; // eslint-disable-next-line
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import { SearchResultContext, WatchListContext } from './../App'
+import { SearchResultContext, WatchListContext, UserContext } from './../App'
 import Fundamentals from './Fundamentals';
 import './../styles/Company.css'
 
@@ -11,7 +11,8 @@ const Company = (props) => {
   const symbol = id;
 
   const { searchResults }  = useContext(SearchResultContext);
-  const {watchList, setWatchList} = useContext(WatchListContext);
+  const { watchList, setWatchList } = useContext(WatchListContext);
+  const { user } = useContext(UserContext)
 
   const [companyProfile, setCompanyProfile] = useState({});
   const [newsArticles, setNewsArticles] = useState([]);
@@ -57,8 +58,9 @@ const Company = (props) => {
               }>
               { priceChange }
             </div>
-            { 
-              !watchList.includes(companyProfile.symbol) &&
+            { // Display collections button if user is signed in and it is not
+              // already added to collections
+              (!watchList.includes(companyProfile.symbol) && user.userId) &&
               <button className='company-card__button company-card__button--save' onClick={() => {
                 setWatchList([...watchList, companyProfile.symbol]);
               }}>+ Save to My Collection</button>

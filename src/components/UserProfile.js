@@ -7,13 +7,14 @@ import './../styles/UserProfile.css';
 const UserProfile = () => {
 
   const { setSearchResults } = useContext(SearchResultContext);
-
   const { watchList } = useContext(WatchListContext);
-
   const { user } = useContext(UserContext);
 
+  // collection is an array of objects containing data about each of the
+  // stocks in user's watchlist
   const [collection, setCollection] = useState([]);
 
+  // Find data for all tickers in watchlist and then set collection state
   useEffect(() => {
     if(watchList.length){
       const tickers = watchList.join(',');
@@ -26,8 +27,7 @@ const UserProfile = () => {
         setCollection(responseObject.stockData);
       })
     }
-  // eslint-disable-next-line
-  }, []);
+  }, []); // eslint-disable-line
 
   // update collection state whenever stock is removed from watchlist
   useEffect(() => {
@@ -35,8 +35,7 @@ const UserProfile = () => {
     updatedCollection = updatedCollection.filter(stock => watchList.includes(stock.symbol));
     console.log(updatedCollection);
     setCollection(updatedCollection);
-  // eslint-disable-next-line
-  }, [watchList])
+  }, [watchList]) // eslint-disable-line
 
   return (
     <React.Fragment>

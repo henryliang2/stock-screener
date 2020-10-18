@@ -53,9 +53,6 @@ const SearchResults = (props) => {
           })
         }
       </div>
-
-    <button onClick={() => console.log(profileContainerRef)}> Click</button>
-
       
       { // If there are more results, show a 'next page' button
         (props.initialValue + 20) < props.totalResultCount &&

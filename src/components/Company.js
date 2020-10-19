@@ -93,7 +93,7 @@ const Company = (props) => {
           {
             newsArticles.map((article, i) => {
               if(!article.image) return null;
-              else return <Article article={article} key={i} />
+              return <Article article={article} key={i} />
             })
           }
         </div>

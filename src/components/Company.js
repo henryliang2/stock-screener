@@ -92,7 +92,6 @@ const Company = (props) => {
           <div className='company__name'>Recent Headlines</div>
           {
             newsArticles.map((article, i) => {
-              if(!article.image) return null;
               return <Article article={article} key={i} />
             })
           }

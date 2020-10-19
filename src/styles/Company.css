@@ -8,6 +8,11 @@
   font-family: 'Lato', 'Arial', 'sans-serif';
 }
 
+.company__return-link {
+  margin-top: 12px;
+  font-size: 2rem;
+}
+
 .company__header {
   font-family: 'Lato', 'Arial', 'sans-serif';
   display: flex;

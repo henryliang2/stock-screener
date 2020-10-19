@@ -19,7 +19,7 @@ const SearchResults = (props) => {
 
   return (
     <React.Fragment>
-      { // If loading (ie. totalResultCount set to -1) show loading bar
+      { // If loading (ie. totalResultCount set to -2) show loading bar
         (props.totalResultCount === -2 ) && <StyledLinearProgress />
       }
       

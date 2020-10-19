@@ -3,7 +3,7 @@
 
 .company {
   margin: auto;
-  width: 100%;
+  width: 90vw;
   max-width: 1200px;
   font-family: 'Lato', 'Arial', 'sans-serif';
 }
@@ -93,6 +93,31 @@
   font-family: 'Lato', 'Arial', 'sans-serif';
 }
 
+@media only screen and (max-width: 1025px) {
+
+  .company__header {
+    flex-direction: column;
+  }
+
+  .company__leftcol {
+    margin-bottom: 24px;
+    justify-content: center;
+  }
+
+  .company__image {
+    margin: auto;
+  }
+
+  .company__main {
+    grid-template-columns: 1fr;
+  }
+
+  .company__info {
+    margin-bottom: 24px;
+    padding-right: 0;
+  }
+}
+
 .company__info-line {
   font-family: 'Lato', 'Arial', 'sans-serif';
   margin-top: 12px;
@@ -109,6 +134,22 @@
   display: inline-block;
   margin: 0 24px;
   align-self: center;
+}
+
+.fundamentals__label {
+  color: #aaa;
+}
+
+@media only screen and (max-width: 1025px) {
+
+  .fundamentals {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .fundamentals__container {
+    margin-bottom: 12px;
+  }
+
 }
 
 .tooltip {

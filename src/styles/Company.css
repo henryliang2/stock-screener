@@ -99,9 +99,14 @@
     flex-direction: column;
   }
 
+  .company__headerinfo {
+    text-align: center;
+  }
+
   .company__leftcol {
     margin-bottom: 24px;
     justify-content: center;
+    flex-direction: column;
   }
 
   .company__image {
@@ -148,6 +153,7 @@
 
   .fundamentals__container {
     margin-bottom: 12px;
+    text-align: center;
   }
 
 }

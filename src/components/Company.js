@@ -80,7 +80,7 @@ const Company = (props) => {
         </div>
         
         <div className='company__chart'>
-          <Chart symbol={ companyProfile.symbol }/>
+          <Chart symbol={ symbol }/>
         </div>
         
       </div>

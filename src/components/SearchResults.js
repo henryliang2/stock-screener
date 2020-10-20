@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useEffect, useState } from 'react';
+import React, { useContext, useRef } from 'react';
 import { SearchResultContext } from './../App'
 import CompanyCard from './CompanyCard';
 import { withStyles } from "@material-ui/core/styles";
@@ -37,6 +37,7 @@ const SearchResults = (props) => {
             if (companyProfile.description != null && companyProfile.industry){
               return <CompanyCard key={i} companyProfile={ companyProfile } />
             }
+            else return null;
           })
         }
       </div>

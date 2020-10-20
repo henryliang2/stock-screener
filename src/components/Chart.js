@@ -22,7 +22,7 @@ const Chart = (props) => {
 
   // fetch quote data from server on load
   useEffect(() => {
-    fetch(`https://stocksurfer-server.netlify.app/quote/${props.symbol}`)
+    fetch(`https://stocksurfer-server.herokuapp.com/quote/${props.symbol}`)
     .then(jsonData => jsonData.json())
     .then(data => setQuoteData(data.quoteData));
   }, [])

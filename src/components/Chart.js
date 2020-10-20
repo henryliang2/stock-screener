@@ -122,7 +122,7 @@ const Chart = (props) => {
       .style('color', '#888')
       .call(yAxis)
 
-  }, [activeTimeFrame, isAbsolute])
+  }, [activeTimeFrame, isAbsolute, quoteData])
 
   return (
     <div className='chart__container'>

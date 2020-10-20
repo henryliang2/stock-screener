@@ -40,7 +40,9 @@ const SearchResults = (props) => {
       <div className='profile__container'>
         { 
           searchResults.map((companyProfile, i) => {
-            return <CompanyCard key={i} companyProfile={ companyProfile } />
+            if (companyProfile.description != null && companyProfile.industry){
+              return <CompanyCard key={i} companyProfile={ companyProfile } />
+            }
           })
         }
       </div>

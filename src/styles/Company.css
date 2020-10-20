@@ -15,18 +15,19 @@
 
 .company__header {
   font-family: 'Lato', 'Arial', 'sans-serif';
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   margin: 24px;
   padding-left: 24px;
   border-left: 2px solid turquoise;
 }
 
-.company__leftcol {
+.header__left-column {
   display: flex;
+  flex-direction: column;
 }
 
-.company__image {
+.header__image {
   width: 120px;
   height: 120px;
   border-radius: 6px;
@@ -36,18 +37,23 @@
   justify-content: center;
 }
 
-.company__image > img {
+.header__image > img {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
   border-radius: 6px;
 }
 
-.company__headerinfo {
+.header__basic-data {
   font-family: 'Lato', 'Arial', 'sans-serif';
-  margin-left: 48px;
   display: inline-block;
   padding-top: 12px;
+  margin-left: 24px;
+}
+
+.header__overview {
+  display: flex;
+  margin-bottom: 24px;
 }
 
 .company__info {
@@ -64,28 +70,28 @@
   padding-right: 48px;
 }
 
-.company__name {
+.header__name {
   font-family: 'Lato', 'Arial', 'sans-serif';
   font-weight: 400;
   font-size: 2.6rem;
   margin-bottom: 12px;
 }
 
-.company__symbol {
+.header__symbol {
   font-family: 'Lato', 'Arial', 'sans-serif';
   font-size: 1.2rem;
   color: #888;
   display: inline-block;
 }
 
-.company__price {
+.header__price {
   font-family: 'Lato', 'Arial', 'sans-serif';
   font-size: 1.2rem;
   display: inline-block;
   margin-left: 48px;
 }
 
-.company__priceChange {
+.header__priceChange {
   font-family: 'Lato', 'Arial', 'sans-serif';
   font-size: 1.2rem;
   display: inline-block;
@@ -101,20 +107,20 @@
 @media only screen and (max-width: 1025px) {
 
   .company__header {
-    flex-direction: column;
+    grid-template-columns: 1fr;
   }
 
   .company__headerinfo {
     text-align: center;
   }
 
-  .company__leftcol {
+  .header__left-column {
     margin-bottom: 24px;
     justify-content: center;
     flex-direction: column;
   }
 
-  .company__image {
+  .header__image {
     margin: auto;
   }
 
@@ -142,7 +148,7 @@
 .fundamentals__container {
   font-family: 'Lato', 'Arial', 'sans-serif';
   display: inline-block;
-  margin: 0 24px;
+  margin: 12px 0;
   align-self: center;
 }
 
@@ -222,6 +228,33 @@
   object-fit: contain;
   align-self: center;
   border-radius: 6px;
+}
+
+.chart__container {
+  text-align: center;
+}
+
+.chart__button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.chart__button {
+  font-size: 0.8rem;
+  padding: 4px;
+  margin: 12px 12px 0 12px;
+  border: none;
+  border-bottom: 2px solid white;
+  background: white;
+  cursor: pointer;
+}
+
+.chart__button:hover {
+  background: #ccc;
+}
+
+.chart__button--highlighted {
+  border-bottom: 2px solid turquoise;
 }
 
 .fade-in {

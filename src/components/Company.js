@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { SearchResultContext, WatchListContext, UserContext } from './../App'
 import Fundamentals from './Fundamentals';
+import Chart from './Chart';
 import './../styles/Company.css'
 
 const Company = (props) => {
@@ -45,42 +46,48 @@ const Company = (props) => {
   return (
     <div className='company'>
       <div className='company__header'>
-        <div className='company__leftcol'>
-          <div className='company__image'><img src={ companyProfile.image } alt='logo'/></div>
-          <div className='company__headerinfo'>
-            <div className='company__name'>{ companyProfile.companyName }</div>
-            <div className='company__symbol'>
-              { `${ companyProfile.exchangeShortName }: ${ companyProfile.symbol }` }
+        <div className='header__left-column'>
+          <div className='header__overview'>
+            <div className='header__image'><img src={ companyProfile.image } alt='logo'/></div>
+            <div className='header__basic-data'>
+              <div className='header__name'>{ companyProfile.companyName }</div>
+              <div className='header__symbol'>
+                { `${ companyProfile.exchangeShortName }: ${ companyProfile.symbol }` }
+              </div>
+              <div className='header__price'>{ companyProfile.price }</div>
+              <div className='header__priceChange' style={
+                  {color: priceChange[1] === '+' ? 'green' : 'red'}
+                }>
+                { priceChange }
+              </div>
+              { // Display collections button if user is signed in and it is not
+                // already added to collections
+                (!watchList.includes(companyProfile.symbol) && user.userId) &&
+                <button className='company-card__button company-card__button--save' onClick={() => {
+                  setWatchList([...watchList, companyProfile.symbol]);
+                }}>+ Save to My Collection</button>
+              }
             </div>
-            <div className='company__price'>{ companyProfile.price }</div>
-            <div className='company__priceChange' style={
-                {color: priceChange[1] === '+' ? 'green' : 'red'}
-              }>
-              { priceChange }
-            </div>
-            { // Display collections button if user is signed in and it is not
-              // already added to collections
-              (!watchList.includes(companyProfile.symbol) && user.userId) &&
-              <button className='company-card__button company-card__button--save' onClick={() => {
-                setWatchList([...watchList, companyProfile.symbol]);
-              }}>+ Save to My Collection</button>
-            }
           </div>
+          { priceChange && 
+            <Fundamentals 
+              beta = { companyProfile.beta }
+              lastDiv = { companyProfile.lastDiv }
+              mktCap = { companyProfile.mktCap }
+              volAvg = { companyProfile.volAvg }
+            />
+          }
         </div>
         
-        { priceChange && 
-          <Fundamentals 
-            beta = { companyProfile.beta }
-            lastDiv = { companyProfile.lastDiv }
-            mktCap = { companyProfile.mktCap }
-            volAvg = { companyProfile.volAvg }
-          />
-        }
+        <div className='company__chart'>
+          <Chart symbol={ companyProfile.symbol }/>
+        </div>
+        
       </div>
 
       <div className='company__main'>
         <div className='company__info'>
-          <div className='company__name'>Company Information</div>
+          <div className='header__name'>Company Information</div>
           <div className='company__description'>{ companyProfile.description }</div>
           <div className='company__info-line'>Sector: { companyProfile.sector }</div>
           <div className='company__info-line'>Industry: { companyProfile.industry }</div>
@@ -89,7 +96,7 @@ const Company = (props) => {
           <div className='company__info-line'>Website: <a href={ companyProfile.website }>{ companyProfile.website }</a></div>
         </div>
         <div className='company__news'>
-          <div className='company__name'>Recent Headlines</div>
+          <div className='header__name'>Recent Headlines</div>
           {
             newsArticles.map((article, i) => {
               return <Article article={article} key={i} />

@@ -6,7 +6,6 @@ import Navigation from './components/Navigation';
 import SearchResults from './components/SearchResults';
 import Company from './components/Company';
 import UserProfile from './components/UserProfile.js';
-import dummyState from './dummy'
 import './App.css';
 
 export const UserContext = React.createContext(null);

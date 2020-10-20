@@ -132,21 +132,21 @@ const Chart = (props) => {
     <div className='chart__container'>
       <div className='chart'></div>
       <div className='chart__button-container' ref={ originSelector }>
-        <button class='chart__button' onClick={() => { setIsAbsolute(0)}}>
+        <button className='chart__button' onClick={() => { setIsAbsolute(0)}}>
           Relative Origin
         </button>
-        <button class='chart__button' onClick={() => { setIsAbsolute(1)}}>
+        <button className='chart__button' onClick={() => { setIsAbsolute(1)}}>
           Absolute Origin
         </button>
       </div>
       <div className='chart__button-container' ref={ viewRangeSelector }>
-        <button class='chart__button' onClick={() => { setActiveTimeFrame(64) }}>
+        <button className='chart__button' onClick={() => { setActiveTimeFrame(64) }}>
           3 Months
         </button>
-        <button class='chart__button' onClick={() => { setActiveTimeFrame(122) }}>
+        <button className='chart__button' onClick={() => { setActiveTimeFrame(122) }}>
           6 Months
         </button>
-        <button class='chart__button' onClick={() => { setActiveTimeFrame(253) }}>
+        <button className='chart__button' onClick={() => { setActiveTimeFrame(253) }}>
           1 Year
         </button>
       </div>

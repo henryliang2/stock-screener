@@ -25,19 +25,20 @@ const Chart = (props) => {
     fetch(`https://stocksurfer-server.herokuapp.com/quote/${props.symbol}`)
     .then(jsonData => jsonData.json())
     .then(data => setQuoteData(data.quoteData));
-  }, [])
+  }, []) // eslint-disable-line
 
-  // append SVG
+  // append SVG on mount
   useEffect(() => {
-    // clear any existing SVG to make room for new one
-    d3.selectAll('svg').remove(); 
+    d3.selectAll('svg').remove(); // clear any existing SVG to make room new one
 
     // Highlight active button for graph options
-    let viewRangeIndex = 0; // index of the activeTimeFrame button to highlight
+    // viewRangeIndex is the index of the activeTimeFrame button to highlight
+    let viewRangeIndex = 0; 
     switch(activeTimeFrame){
       case(64): viewRangeIndex = 0; break;
       case(122): viewRangeIndex = 1; break;
       case(253): viewRangeIndex = 2; break;
+      default: viewRangeIndex = 2;
     }
     for(let button of viewRangeSelector.current.children){
       button.className='chart__button'
@@ -49,25 +50,27 @@ const Chart = (props) => {
     }
     originSelector.current.children[isAbsolute].classList.add('chart__button--highlighted')
 
-    const series = [...quoteData].slice(0, activeTimeFrame)
+    // use only the series data of the timeFrame requested
+    let series = [...quoteData].slice(0, activeTimeFrame)
       
     console.log(series);
 
-    const margin = 40;
-    const width = 400;
-    const height = 240;
-
-    const data = series.map(dataPoint => [
+    // turn series in to an array matrix of the form [[datum.date, datum.close]]
+    series = series.map(dataPoint => [
         new Date(dataPoint.date), 
         dataPoint.close
       ]);
 
-    const xMin = d3.extent(data.map(dataPoint => dataPoint[0]))[0];
-    const xMax = d3.extent(data.map(dataPoint => dataPoint[0]))[1];
-    const yMin = d3.extent(data.map(dataPoint => dataPoint[1]))[0];
-    const yMax = d3.extent(data.map(dataPoint => dataPoint[1]))[1];
+    const xMin = d3.extent(series.map(dataPoint => dataPoint[0]))[0];
+    const xMax = d3.extent(series.map(dataPoint => dataPoint[0]))[1];
+    const yMin = d3.extent(series.map(dataPoint => dataPoint[1]))[0];
+    const yMax = d3.extent(series.map(dataPoint => dataPoint[1]))[1];
 
     console.log(xMin, xMax, yMin, yMax);
+
+    const margin = 40;
+    const width = props.width;
+    const height = props.height;
 
     const xScale = d3.scaleTime()
       .domain([xMin, xMax])
@@ -76,13 +79,14 @@ const Chart = (props) => {
     const xAxis = d3.axisBottom(xScale)
 
     const yScale = d3.scaleLinear()
-      // use y-Axis origin of ZERO for Absolute
+      // use y-Axis origin of zero for Absolute
       // use y-Axis origin  of yMin for Relative
       .domain([isAbsolute ? 0 : yMin, yMax])  
       .range([height - margin, 0]); // reverse due to upside-down y-axis
 
     const yAxis = d3.axisLeft(yScale)
 
+    // draw path
     const lineGenerator = d3.line()
       .x( function(d, i){
         return xScale(d[0])
@@ -91,7 +95,7 @@ const Chart = (props) => {
         return yScale(d[1])
       })
 
-    const pathData = lineGenerator(data);
+    const pathData = lineGenerator(series);
 
     // Stock Movement Path
     d3.select('.chart')
@@ -122,7 +126,7 @@ const Chart = (props) => {
       .style('color', '#888')
       .call(yAxis)
 
-  }, [activeTimeFrame, isAbsolute, quoteData])
+  }, [activeTimeFrame, isAbsolute, quoteData]) // eslint-disable-line
 
   return (
     <div className='chart__container'>

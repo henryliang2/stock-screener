@@ -80,7 +80,11 @@ const Company = (props) => {
         </div>
         
         <div className='company__chart'>
-          <Chart symbol={ symbol }/>
+          <Chart 
+            symbol={ symbol }
+            width={ 400 }
+            height={ 240 }
+            />
         </div>
         
       </div>

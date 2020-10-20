@@ -11,12 +11,6 @@ const SearchResults = (props) => {
 
   const { searchResults, setSearchResults } = useContext(SearchResultContext);
 
-  // clean slate, empty any previous search results on first load
-  useEffect(() => { 
-    setSearchResults([]);
-    props.setTotalResultCount(0);
-  }, []) 
-
   return (
     <React.Fragment>
       { // If loading (ie. totalResultCount set to -2) show loading bar

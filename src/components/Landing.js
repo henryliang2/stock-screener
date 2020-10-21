@@ -18,7 +18,6 @@ const Landing = (props) => {
     fetch(`https://stocksurfer-server.herokuapp.com/sync/`, { credentials: 'include'})
     .then(jsonUser => jsonUser.json())
     .then(returnedUser => { 
-      console.log(returnedUser);
       if(!returnedUser.userId) return null;
       setUser(returnedUser);
       setWatchList(returnedUser.stocks)

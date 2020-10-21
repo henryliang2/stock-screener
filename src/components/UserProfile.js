@@ -21,7 +21,6 @@ const UserProfile = () => {
       fetch(`https://stocksurfer-server.herokuapp.com/companies/${tickers}`)
       .then(jsonData => jsonData.json())
       .then(responseObject => { 
-        console.log(responseObject)
         if (responseObject.stockData.error) return null;
         setSearchResults(responseObject.stockData);
         setCollection(responseObject.stockData);
@@ -33,7 +32,6 @@ const UserProfile = () => {
   useEffect(() => {
     let updatedCollection = [...collection];
     updatedCollection = updatedCollection.filter(stock => watchList.includes(stock.symbol));
-    console.log(updatedCollection);
     setCollection(updatedCollection);
   }, [watchList]) // eslint-disable-line
 

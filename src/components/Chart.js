@@ -52,8 +52,6 @@ const Chart = (props) => {
 
     // use only the series data of the timeFrame requested
     let series = [...quoteData].slice(0, activeTimeFrame)
-      
-    console.log(series);
 
     // turn series in to an array matrix of the form [[datum.date, datum.close]]
     series = series.map(dataPoint => [
@@ -65,8 +63,6 @@ const Chart = (props) => {
     const xMax = d3.extent(series.map(dataPoint => dataPoint[0]))[1];
     const yMin = d3.extent(series.map(dataPoint => dataPoint[1]))[0];
     const yMax = d3.extent(series.map(dataPoint => dataPoint[1]))[1];
-
-    console.log(xMin, xMax, yMin, yMax);
 
     const margin = 40;
     const width = props.width;

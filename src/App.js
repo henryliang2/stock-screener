@@ -47,7 +47,6 @@ const App = () => {
     fetch(`https://stocksurfer-server.herokuapp.com/search/${startNum}/${queryOptions}`)
     .then(jsonData => jsonData.json())
     .then(responseObject => { 
-      console.log(responseObject)
       if (responseObject.stockData.error) {
         setSearchResults([]);
         setTotalResultCount(-1);

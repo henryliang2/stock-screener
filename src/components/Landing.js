@@ -15,9 +15,10 @@ const Landing = (props) => {
 
   // Get user (after successful login) and sync with DB
   useEffect(() => {
-    fetch(`https://stocksurfer-server.herokuapp.com/sync/`, { credentials: 'include'})
+    fetch(`http://localhost:8080/sync/`, { credentials: 'include'})
     .then(jsonUser => jsonUser.json())
     .then(returnedUser => { 
+      console.log(returnedUser);
       if(!returnedUser.userId) return null;
       setUser(returnedUser);
       setWatchList(returnedUser.stocks)

@@ -15,7 +15,7 @@ const Landing = (props) => {
 
   // Get user (after successful login) and sync with DB
   useEffect(() => {
-    fetch(`http://localhost:8080/sync/`, { credentials: 'include'})
+    fetch(`https://stocksurfer-server.herokuapp.com/sync/`, { credentials: 'include'})
     .then(jsonUser => jsonUser.json())
     .then(returnedUser => { 
       console.log(returnedUser);

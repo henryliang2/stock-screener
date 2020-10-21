@@ -1,13 +1,15 @@
 # Surf the Market.
 ## StockSurfer is a stock screener designed for retail and DIY investors.
 
-StockSurfer is a full-stack web app built using **React, d3.js, Express, and MongoDB.**  
-The app uses **Passport.js and OAuth 2.0** for authentication.
+StockSurfer is a full-stack web app built using **React, Express, and MongoDB.**  
+The app also uses **d3.js** for visualization and **Passport.js with OAuth 2.0** for authentication.
 
 StockSurfer lets users browse through stocks that fit their desired criteria. After  
 signing in, users can save stocks to their personal collection for later review.
   
 See live hosted app at https://stock-surfer.netlify.app
+
+![demo](public/demo.jpg)
 
 ## Description
 
@@ -21,5 +23,7 @@ While reviewing stocks strictly by technical or fundamental measures can be usef
 
 I envisioned a stock screener output that would allow a user to input their desired criteria - just like a stock screener - and then browse stocks by their non-quantitative attributes. StockSurfer is my proof-of-concept for this idea.
 
-![demo](public/demo.jpg)
-
+## Resources
+Technology: React, d3.js, Express, MongoDB  
+APIs: [Financial Modeling Prep](https://financialmodelingprep.com), [Finnhub](https://finnhub.io/)   
+Note: StockSurfer is a proof-of-concept and uses data scraped from [Finviz.com](https://finviz.com).

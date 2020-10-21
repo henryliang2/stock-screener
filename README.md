@@ -23,6 +23,10 @@ While reviewing stocks strictly by technical or fundamental measures can be usef
 
 I envisioned a stock screener output that would allow a user to input their desired criteria - just like a stock screener - and then browse stocks by their non-quantitative attributes. StockSurfer is my proof-of-concept for this idea.
 
+Here is an example output row from StockSurfer:
+
+![demo card](public/demo-card.png)
+
 ## Resources
 Technology: React, d3.js, Express, MongoDB  
 APIs: [Financial Modeling Prep](https://financialmodelingprep.com), [Finnhub](https://finnhub.io/)   

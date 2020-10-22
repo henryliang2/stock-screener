@@ -25,3 +25,20 @@
   color: black;
   margin-left: 24px;
 }
+
+.profile__container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+@media only screen and (max-width: 1025px) {
+  .profile__container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .profile__container {
+    grid-template-columns: 1fr;
+  }
+}

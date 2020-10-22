@@ -1,6 +1,6 @@
 import React, { useContext, useRef } from 'react';
 import { SearchResultContext } from './../App'
-import CompanyCard from './CompanyCard';
+import ResultCard from './ResultCard';
 import { withStyles } from "@material-ui/core/styles";
 import { LinearProgress } from '@material-ui/core';
 import './../App.css';
@@ -31,11 +31,11 @@ const SearchResults = (props) => {
         }
       </div>
 
-      <div className='profile__container'>
+      <div className='result__container'>
         { 
           searchResults.map((companyProfile, i) => {
             if (companyProfile.description != null && companyProfile.industry){
-              return <CompanyCard key={i} companyProfile={ companyProfile } />
+              return <ResultCard key={i} companyProfile={ companyProfile } />
             }
             else return null;
           })

@@ -1,10 +1,10 @@
 import React, { useContext, useRef } from 'react'; // eslint-disable-next-line
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { UserContext, WatchListContext } from '../App';
-import './../styles/CompanyCard.css';
+import './../styles/ResultCard.css';
 import './../App.css';
 
-const CompanyCard = (props) => {
+const ResultCard = (props) => {
 
   const { watchList, setWatchList } = useContext(WatchListContext);
 
@@ -92,5 +92,5 @@ const CompanyCard = (props) => {
   );
 }
 
-export default CompanyCard;
+export default ResultCard;
 

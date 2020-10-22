@@ -10,7 +10,7 @@ a {
   outline: none;
 }
 
-.profile__container {
+.result__container {
   width: 90vw;
   max-width: 1200px;
   margin: auto;
@@ -19,7 +19,7 @@ a {
 }
 
 @media only screen and (max-width: 1024px) {
-  .profile__container {
+  .result__container {
     grid-template-columns: 1fr;
   }
 }

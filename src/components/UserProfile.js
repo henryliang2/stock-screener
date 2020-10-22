@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { UserContext, WatchListContext, SearchResultContext } from './../App';
-import CompanyCard from './CompanyCard';
+import ProfileCard from './ProfileCard';
 import './../App.css'
 import './../styles/UserProfile.css';
 
@@ -45,7 +45,7 @@ const UserProfile = () => {
         <div className='profile__container'>
           {
             collection.map((companyProfile, i) => {
-              return <CompanyCard key={i} companyProfile={ companyProfile } />
+              return <ProfileCard key={i} companyProfile={ companyProfile } />
             })
           }
         </div>

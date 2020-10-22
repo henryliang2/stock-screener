@@ -5,10 +5,35 @@
   padding: 24px;
   border: 1px solid #ccc;
   border-radius: 6px;
+  margin: 24px;
 }
 
 .profile-card__image {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 120px;
+  margin: auto;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.profile-card__image > img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+.profile-card__image > img {
+  border-radius: 6px;
+}
+
+.profile-card__image > a:hover {
+  transition: all 0.2s ease;
+  opacity: 0.6;
 }
 
 .profile-card__name {
@@ -17,12 +42,18 @@
   font-weight: 400;
 }
 
+.profile-card__name > a:hover {
+  transition: all 0.2s ease;
+  color: #888;
+}
+
 .profile-card__exch {
   font-family: inherit;
   font-size: 1.2rem;
   font-weight: 300;
   color: #aaa;
   margin-bottom: 12px;
+  text-align: center;
 }
 
 .profile-card__industry {

@@ -106,11 +106,37 @@
 
 @media only screen and (max-width: 1025px) {
 
-  .company__header {
+  .company__main {
     grid-template-columns: 1fr;
   }
 
+  .company__info {
+    margin-bottom: 24px;
+    padding-right: 0;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .company__header {
+    grid-template-columns: 1fr;
+    margin: 24px 0;
+    padding: 0;
+    border: none;
+  }
+
   .company__headerinfo {
+    text-align: center;
+  }
+
+  .header__overview {
+    flex-direction: column;
+  }
+
+  .header__name {
+    text-align: center;
+  }
+
+  .header__basic-data {
     text-align: center;
   }
 
@@ -122,15 +148,6 @@
 
   .header__image {
     margin: auto;
-  }
-
-  .company__main {
-    grid-template-columns: 1fr;
-  }
-
-  .company__info {
-    margin-bottom: 24px;
-    padding-right: 0;
   }
 }
 
@@ -192,6 +209,12 @@
   font-family: 'Lato', 'Arial', 'sans-serif';
   font-size: 1.1rem;
   font-weight: 700;
+}
+
+@media only screen and (max-width: 640px) { 
+  .article__image {
+    display: none;
+  }
 }
 
 .article__headline > a:hover {

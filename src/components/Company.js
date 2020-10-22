@@ -82,7 +82,7 @@ const Company = (props) => {
         <div className='company__chart'>
           <Chart 
             symbol={ symbol }
-            width={ 400 }
+            width={ 360 }
             height={ 240 }
             />
         </div>

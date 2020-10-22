@@ -31,6 +31,28 @@ Here is an example output row from StockSurfer:
 
 ![demo card](public/demo-card.png)
 
+## Database Model
+
+StockSurfer uses MongoDB for storage of user data.
+
+    {
+      "_id": {
+        "$oid": "5f88a8a4003d71065df02c68"
+      },
+      "stocks": [
+        "AAPL",
+        "NFLX",
+        "MSFT"
+      ],
+      "userId": "101154829380773895726",
+      "displayName": "Henry",
+      "email": "henry@example.url",
+      "image": "https://abc.googleusercontent.com/example-image-url",
+      "__v": {
+        "$numberInt": "0"
+      }
+    }
+
 ## Resources
 Technology: React, d3.js, Express, MongoDB  
 APIs: [Financial Modeling Prep](https://financialmodelingprep.com), [Finnhub](https://finnhub.io/)   

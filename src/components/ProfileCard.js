@@ -1,12 +1,10 @@
 import React, { useContext, useRef } from 'react'; // eslint-disable-next-line
-import { WatchListContext, UserContext } from '../App';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { WatchListContext, UserContext } from '../App';
 import './../App.css'
 import './../styles/ProfileCard.css'
 
 const ProfileCard = (props) => {
-
-  const watchList = useContext(WatchListContext);
 
   const { watchList, setWatchList } = useContext(WatchListContext);
 

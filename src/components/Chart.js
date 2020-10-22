@@ -90,6 +90,11 @@ const Chart = (props) => {
       .y( function(d, i){
         return yScale(d[1])
       })
+    
+    // add to each end a Y value of zero so that d3 has a shape to fill in
+    // zero if absolute, yMin if relative
+    series.push([xMin, isAbsolute ? 0 : yMin])
+    series.unshift([xMax, isAbsolute ? 0 : yMin])
 
     const pathData = lineGenerator(series);
 
@@ -99,8 +104,9 @@ const Chart = (props) => {
       .attr('width', width)
       .attr('height', height)
       .append('path')
-      .attr('fill', 'none')
-      .attr('stroke', '#111b30')
+      .attr('fill', // show green/red based on whether first close greater than last
+        series[series.length - 2][1] < series[1][1] ? '#49b375' : '#c42f4a'
+      )
       .attr('transform', `translate(${margin}, 0)`)
       .attr('d', pathData);
 

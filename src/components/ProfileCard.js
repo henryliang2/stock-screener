@@ -25,15 +25,15 @@ const ProfileCard = (props) => {
 
   return (
     <div className='profile-card' ref={ cardContainer }>
-      <div className='profile-card__image'>
-        <Link to={`/company/${ companyProfile.symbol }`}>
+      <Link to={`/company/${ companyProfile.symbol }`}>
+        <div className='profile-card__image'>
           <img 
             alt={`${companyProfile.name}-logo`} 
             src={ companyProfile.image }
             onLoad={() => { cardContainer.current.classList.add('fade-in')}}
             />
-        </Link>
-      </div>
+        </div>
+      </Link>
       <div className='profile-card__exch'>
         { `${companyProfile.exchangeShortName}: ${companyProfile.symbol}` }
       </div>

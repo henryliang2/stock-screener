@@ -46,7 +46,7 @@ StockSurfer uses MongoDB for storage of user data.
       ],
       "image": "https://abc.googleusercontent.com/example-image-url",
       "_id": {
-        "$oid": "5f88a8a4003d71065df02c68"
+        "$oid": "5f88a8a7835d78643df02c21"
       },
       "__v": {
         "$numberInt": "0"

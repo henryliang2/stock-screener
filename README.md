@@ -36,18 +36,18 @@ Here is an example output row from StockSurfer:
 StockSurfer uses MongoDB for storage of user data.
 
     {
-      "_id": {
-        "$oid": "5f88a8a4003d71065df02c68"
-      },
+      "displayName": "Henry",
+      "email": "henry@example.url",
+      "userId": "101154829380773895726",
       "stocks": [
         "AAPL",
         "NFLX",
         "MSFT"
       ],
-      "userId": "101154829380773895726",
-      "displayName": "Henry",
-      "email": "henry@example.url",
       "image": "https://abc.googleusercontent.com/example-image-url",
+      "_id": {
+        "$oid": "5f88a8a4003d71065df02c68"
+      },
       "__v": {
         "$numberInt": "0"
       }

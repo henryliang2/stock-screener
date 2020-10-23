@@ -1,8 +1,6 @@
 import React, { useContext, useRef } from 'react';
 import { SearchResultContext } from './../App'
 import ResultCard from './ResultCard';
-import { withStyles } from "@material-ui/core/styles";
-import { LinearProgress } from '@material-ui/core';
 import './../App.css';
 
 const SearchResults = (props) => {
@@ -13,9 +11,6 @@ const SearchResults = (props) => {
 
   return (
     <React.Fragment>
-      { // If loading (ie. totalResultCount set to -2) show loading bar
-        (props.totalResultCount === -2 ) && <StyledLinearProgress />
-      }
       
       <div className='profile__resultcount' ref={ resultCountRef }>
         { // If < 20 results, display number of results on page
@@ -60,14 +55,5 @@ const SearchResults = (props) => {
     </React.Fragment>
   );
 }
-
-const StyledLinearProgress = withStyles({
-  colorPrimary: {
-    backgroundColor: "#111b30"
-  },
-  barColorPrimary: {
-    backgroundColor: "#5eccc3"
-  }
-})(LinearProgress);
 
 export default SearchResults;

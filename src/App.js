@@ -6,6 +6,8 @@ import Navigation from './components/Navigation';
 import SearchResults from './components/SearchResults';
 import Company from './components/Company';
 import UserProfile from './components/UserProfile.js';
+import { withStyles } from "@material-ui/core/styles";
+import { LinearProgress } from '@material-ui/core';
 import './App.css';
 
 export const UserContext = React.createContext(null);
@@ -64,6 +66,9 @@ const App = () => {
 
   return (
     <React.Fragment>
+      { // If fetching stocks (ie. totalResultCount set to -2) show loading bar
+        (totalResultCount === -2 ) && <StyledLinearProgress />
+      }
 
       <UserContext.Provider value={ { user, setUser } }>
         <Router>
@@ -113,5 +118,14 @@ const App = () => {
     
   );
 }
+
+const StyledLinearProgress = withStyles({
+  colorPrimary: {
+    backgroundColor: "#111b30"
+  },
+  barColorPrimary: {
+    backgroundColor: "#5eccc3"
+  }
+})(LinearProgress);
 
 export default App;

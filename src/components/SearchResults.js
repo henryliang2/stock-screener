@@ -49,7 +49,7 @@ const SearchResults = (props) => {
             onClick={ () => { 
               setSearchResults([]);
               props.setTotalResultCount(-2);
-              props.runApiCall(props.initialValue + 20);
+              props.fetchStocks(props.initialValue + 20);
               props.setInitialValue(props.initialValue + 20);
               resultCountRef.current.scrollIntoView({ behaviour: 'smooth'});
             }}> 

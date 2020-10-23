@@ -38,7 +38,7 @@ const SearchForm = (props) => {
         props.setTotalResultCount(-2); // set to show 'Loading ..'
         setSearchResults([]);
         props.setInitialValue(1);
-        props.runApiCall(1); 
+        props.fetchStocks(1); 
       }}
       type='submit' >
 

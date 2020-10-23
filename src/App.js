@@ -43,7 +43,7 @@ const App = () => {
     }
   }, [watchList]) // eslint-disable-line
 
-  const runApiCall = (startNum) => {
+  const fetchStocks = (startNum) => {
     fetch(`https://stocksurfer-server.herokuapp.com/search/${startNum}/${queryOptions}`)
     .then(jsonData => jsonData.json())
     .then(responseObject => { 
@@ -83,14 +83,14 @@ const App = () => {
                   setTotalResultCount = { setTotalResultCount }
                   setQueryOptions={ setQueryOptions } 
                   setInitialValue={ setInitialValue }
-                  runApiCall={ runApiCall } 
+                  fetchStocks={ fetchStocks } 
                   />
                 <SearchResults 
                   initialValue={ initialValue }
                   totalResultCount={ totalResultCount }
                   setTotalResultCount = { setTotalResultCount }
                   setInitialValue={ setInitialValue }
-                  runApiCall={ runApiCall }
+                  fetchStocks={ fetchStocks }
                   />
               </Route>
               

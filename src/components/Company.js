@@ -33,7 +33,7 @@ const Company = (props) => {
 
   // fetch news articles from Finnhub API
   useEffect(() => {
-    fetch(`https://stocksurfer-server.herokuapp.com/news/${symbol}`)
+    fetch(`https://stocksurfer-server.herokuapp.com/api/news/${symbol}`)
     .then(jsonData => jsonData.json())
     .then(data => { 
       setNewsArticles(data.articles)

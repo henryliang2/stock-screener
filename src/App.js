@@ -36,7 +36,7 @@ const App = () => {
   // update DB whenever watchlist is modified
   useEffect(() => {
     if(user.userId) {
-      fetch(`https://stocksurfer-server.herokuapp.com/update`, {
+      fetch(`https://stocksurfer-server.herokuapp.com/user/update`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ stocks: watchList }),
@@ -46,7 +46,7 @@ const App = () => {
   }, [watchList]) // eslint-disable-line
 
   const fetchStocks = (startNum) => {
-    fetch(`https://stocksurfer-server.herokuapp.com/search/${startNum}/${queryOptions}`)
+    fetch(`https://stocksurfer-server.herokuapp.com/api/search/${startNum}/${queryOptions}`)
     .then(jsonData => jsonData.json())
     .then(responseObject => { 
       if (responseObject.stockData.error) {

@@ -18,7 +18,7 @@ const UserProfile = () => {
   useEffect(() => {
     if(watchList.length){
       const tickers = watchList.join(',');
-      fetch(`https://stocksurfer-server.herokuapp.com/companies/${tickers}`)
+      fetch(`https://stocksurfer-server.herokuapp.com/api/companies/${tickers}`)
       .then(jsonData => jsonData.json())
       .then(responseObject => { 
         if (responseObject.stockData.error) return null;

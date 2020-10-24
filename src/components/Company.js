@@ -24,12 +24,7 @@ const Company = (props) => {
     searchResults.forEach(result => {
       if (Object.values(result).includes(symbol)) {
         setCompanyProfile(result);
-
-        // Format the price change for color and pos/neg
-        let change = result.changes.toFixed(2);
-        if(Math.sign(change) === 1 || Math.sign(change) === 0) change = `(+${change.toString()}%)`;
-        else change = `(${change.toString()}%)`;
-        setPriceChange(change);
+        setPriceChange(changeString);
       }
     });
   })

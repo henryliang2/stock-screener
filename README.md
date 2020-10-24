@@ -4,6 +4,8 @@
 StockSurfer is a full-stack web app built using **React, Express, and MongoDB.**  
 The app also uses **d3.js** for visualization and **Passport.js with OAuth 2.0** for authentication.
 
+[Live Project on Netlify](https://stock-surfer.netlify.app)
+
 StockSurfer lets users browse through stocks that fit their desired criteria. After  
 signing in, users can save stocks to their personal collection for later review.
 
@@ -13,7 +15,8 @@ StockSurfer uses d3.js to dynamically display price movement.
 
 ![demo](public/demo-chart.gif)
   
-See live hosted app at https://stock-surfer.netlify.app
+This repo is for the Front-End portion of the app. For the Back-End portion, see   
+https://github.com/henryliang2/stock-screener-backend
 
 ## Description
 

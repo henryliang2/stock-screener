@@ -24,7 +24,7 @@ const Company = (props) => {
     searchResults.forEach(result => {
       if (Object.values(result).includes(symbol)) {
         setCompanyProfile(result);
-        setPriceChange(changeString);
+        setPriceChange(result.changeString);
       }
     });
   })

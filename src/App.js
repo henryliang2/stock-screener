@@ -36,7 +36,7 @@ const App = () => {
   // update DB whenever watchlist is modified
   useEffect(() => {
     if(user.userId) {
-      fetch(`https://stocksurfer-server.herokuapp.com/set`, {
+      fetch(`https://stocksurfer-server.herokuapp.com/update`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ stocks: watchList }),

@@ -39,7 +39,7 @@ const Company = (props) => {
     fetch(`https://stocksurfer-server.herokuapp.com/companynews/${symbol}`)
     .then(jsonData => jsonData.json())
     .then(data => { 
-      setNewsArticles(data.newsArray)
+      setNewsArticles(data.articles)
     });
   }, []) // eslint-disable-line
   

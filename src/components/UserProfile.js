@@ -23,6 +23,7 @@ const UserProfile = () => {
       .then(responseObject => { 
         if (responseObject.stockData.error) return null;
         setSearchResults(responseObject.stockData);
+        setTotalResultCount(0);
         setCollection(responseObject.stockData);
       })
     }

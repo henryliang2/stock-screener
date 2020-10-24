@@ -104,7 +104,9 @@ const App = () => {
               }/>
 
               <Route path='/userprofile'>
-                <UserProfile />
+                <UserProfile 
+                  setTotalResultCount = { setTotalResultCount }
+                />
               </Route>
             
             </WatchListContext.Provider>

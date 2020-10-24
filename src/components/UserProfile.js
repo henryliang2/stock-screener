@@ -4,7 +4,7 @@ import ProfileCard from './ProfileCard';
 import './../App.css'
 import './../styles/UserProfile.css';
 
-const UserProfile = () => {
+const UserProfile = (props) => {
 
   const { setSearchResults } = useContext(SearchResultContext);
   const { watchList } = useContext(WatchListContext);
@@ -23,8 +23,8 @@ const UserProfile = () => {
       .then(responseObject => { 
         if (responseObject.stockData.error) return null;
         setSearchResults(responseObject.stockData);
-        setTotalResultCount(0);
         setCollection(responseObject.stockData);
+        props.setTotalResultCount(0);
       })
     }
   }, []); // eslint-disable-line

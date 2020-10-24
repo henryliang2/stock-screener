@@ -29,10 +29,7 @@ const SearchResults = (props) => {
       <div className='result__container'>
         { 
           searchResults.map((companyProfile, i) => {
-            if (companyProfile.description != null && companyProfile.industry){
-              return <ResultCard key={i} companyProfile={ companyProfile } />
-            }
-            else return null;
+            return <ResultCard key={i} companyProfile={ companyProfile } />
           })
         }
       </div>

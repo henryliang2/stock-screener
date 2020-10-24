@@ -21,22 +21,6 @@ const ResultCard = (props) => {
     setWatchList(updatedList);
   }
 
-  // Formatting Price Change Percentage String
-  let change = companyProfile.changes.toFixed(2);
-  if(Math.sign(change) === 1 || Math.sign(change) === 0) change = `(+${change.toString()}%)`;
-  else change = `(${change.toString()}%)`;
-
-  // Formatting Market Cap String
-  const mktCapStrLength = companyProfile.mktCap.toString().length;
-  let mktCapStr = '';
-  if (mktCapStrLength >= 13) mktCapStr = (companyProfile.mktCap / 1000000000000).toFixed(2) + ' Trillion'
-  else if (mktCapStrLength >= 10) mktCapStr = (companyProfile.mktCap / 1000000000).toFixed(2) + ' Billion'
-  else if (mktCapStrLength >= 7) mktCapStr = (companyProfile.mktCap / 1000000).toFixed(2) + ' Million'
-  else mktCapStr = companyProfile.mktCap.toString();
-
-  // Formatting Description String
-  const shortenedDescription = companyProfile.description.slice(0, 360) + ' ...'
-
   // Formatting Price String
   const price = companyProfile.price.toFixed(2);
 
@@ -56,8 +40,8 @@ const ResultCard = (props) => {
           <div className='company-card__price'>
             <div className='company-card__priceValue'>{ price }&nbsp;</div>
             <div className='company-card__priceChange' style={
-                {color: change[1] === '+' ? 'green' : 'red'}
-              }>{ change }</div>
+                {color: companyProfile.changeString[1] === '+' ? 'green' : 'red'}
+              }>{ companyProfile.changeString }</div>
           </div>
           <div className='company-card__symbol'>
             { `${companyProfile.exchangeShortName}: ${ companyProfile.symbol }` }
@@ -68,8 +52,8 @@ const ResultCard = (props) => {
             <Link to={`/company/${ companyProfile.symbol }`}>{ companyProfile.companyName }</Link>
           </div>
           <div className='company-card__industry'>{ companyProfile.industry }</div>
-          <div className='company-card__mktCap'>Market Cap: { mktCapStr }</div>
-          <div className='company-card__desc'>{ shortenedDescription }</div>
+          <div className='company-card__mktCap'>Market Cap: { companyProfile.mktCapStr }</div>
+          <div className='company-card__desc'>{ companyProfile.shortDesc }</div>
             { 
               // if user is logged in, show a button to add or remove from collection
               user.userId && (

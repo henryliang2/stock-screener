@@ -18,6 +18,7 @@ const Company = (props) => {
   const [companyProfile, setCompanyProfile] = useState({});
   const [newsArticles, setNewsArticles] = useState([]);
   const [priceChange, setPriceChange] = useState('');
+  const [price, setPrice] = useState(0);
 
   // extract current company profile from prop (which is an array of all companies)
   useEffect(() => {
@@ -25,6 +26,7 @@ const Company = (props) => {
       if (Object.values(result).includes(symbol)) {
         setCompanyProfile(result);
         setPriceChange(result.changeString);
+        setPrice(result.price.toFixed(2));
       }
     });
   })
@@ -49,7 +51,7 @@ const Company = (props) => {
               <div className='header__symbol'>
                 { `${ companyProfile.exchangeShortName }: ${ companyProfile.symbol }` }
               </div>
-              <div className='header__price'>{ companyProfile.price }</div>
+              <div className='header__price'>{ price }</div>
               <div className='header__priceChange' style={
                   {color: priceChange[1] === '+' ? 'green' : 'red'}
                 }>

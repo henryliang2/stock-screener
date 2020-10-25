@@ -125,7 +125,7 @@ export const Article = (props) => {
         </div>
       </a>
       <div className='article__info'>
-        <div className='article__headline'><a href={ props.article.url }>{ props.article.headline }</a></div>
+        <div className='article__headline'><a href={ props.article.url } rel='noopener noreferrer' target='_blank'>{ props.article.headline }</a></div>
         <div className='article__summary'>{ props.article.summary }</div>
         <div className='article__source'>Source: { props.article.source }</div>
       </div>

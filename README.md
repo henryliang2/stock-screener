@@ -7,16 +7,15 @@ The app also uses **d3.js** for visualization and **Passport.js with OAuth 2.0**
 [Live Project on Netlify](https://stock-surfer.netlify.app)
 
 StockSurfer lets users browse through stocks that fit their desired criteria. After  
-signing in, users can save stocks to their personal collection for later review.
+signing in, users can save stocks to their personal collection for later review.  
+StockSurfer uses d3.js to dynamically display price movement.
 
 ![demo](public/demo.jpg)
-
-StockSurfer uses d3.js to dynamically display price movement.
 
 ![demo](public/demo-chart.gif)
   
 This repo is for the Front-End portion of the app. For the Back-End portion, see   
-https://github.com/henryliang2/stock-screener-backend
+https://github.com/henryliang2/stock-surfer-backend
 
 ## Description
 

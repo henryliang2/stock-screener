@@ -29,7 +29,7 @@ const Navigation = () => {
     <div className='nav'>
       <div className='nav__container'>
 
-        <Link to={user.userId ? '/search' : '/'}>
+        <Link to='/search'>
           <div className='nav__logo'>
             StockSurfer
           </div>

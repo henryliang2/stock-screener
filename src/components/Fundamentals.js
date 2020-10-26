@@ -27,27 +27,29 @@ const Fundamentals = (props) => {
       <div className='fundamentals__container'>
         <div className='fundamentals__label'>
           Market Cap 
-          <Tooltip title={<span className='tooltip'>{indicatorDescriptions.marketCap.desc}</span>} arrow>
-            <a href={indicatorDescriptions.marketCap.link}><HelpOutlineIcon fontSize='small' /></a>
-          </Tooltip>
+            <a href={indicatorDescriptions.marketCap.link}><HelpOutlineIcon 
+              tooltip={<span className='tooltip'>{indicatorDescriptions.marketCap.desc}</span>}
+              fontSize='small' /></a>
+
         </div>
         <div className='fundamentals__value'>{ marketCap }</div>
       </div>
       <div className='fundamentals__container'>
         <div className='fundamentals__label'>
           Beta 
-          <Tooltip title={<span className='tooltip'>{indicatorDescriptions.beta.desc}</span>} arrow>
-            <a href={indicatorDescriptions.beta.link}><HelpOutlineIcon fontSize='small' /></a>
-          </Tooltip>
+            <a href={indicatorDescriptions.beta.link}><HelpOutlineIcon 
+              tooltip={<span className='tooltip'>{indicatorDescriptions.beta.desc}</span>}
+              fontSize='small' /></a>
         </div>
         <div className='fundamentals__value'>{ props.beta }</div>
       </div>
       <div className='fundamentals__container'>
         <div className='fundamentals__label'>
           Avg Volume 
-          <Tooltip title={<span className='tooltip'>{indicatorDescriptions.avgVol.desc}</span>} arrow>
-            <a href={indicatorDescriptions.avgVol.link}><HelpOutlineIcon fontSize='small' /></a>
-          </Tooltip>
+            <a href={indicatorDescriptions.avgVol.link}><HelpOutlineIcon 
+              tooltip={<span className='tooltip'>{indicatorDescriptions.avgVol.desc}</span>}
+              fontSize='small' /></a>
+
         </div>
         <div className='fundamentals__value'>{ avgVolume }</div>
       </div>

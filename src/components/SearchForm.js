@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react'; // eslint-disable-next-line
+import React, { useState, useEffect, useContext, useRef } from 'react'; // eslint-disable-next-line
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { SearchResultContext } from '../App';
 import './../styles/SearchForm.css';
@@ -11,6 +11,9 @@ import {
 } from './../variables/SearchFormOptions';
 
 const SearchForm = (props) => {
+
+  const sectorRef = useRef(null);
+  const industryRef = useRef(null);
 
   const [sector, setSector] = useState('');
   const [industry, setIndustry] = useState('');
@@ -44,7 +47,16 @@ const SearchForm = (props) => {
 
       <div className='searchform__field'>
         <label htmlFor="sector">Sector</label>  
-        <select name='Sector' id='sector' value={ sector } onChange={(e) => setSector(e.target.value)}>
+        <select 
+          name='Sector' 
+          id='sector' 
+          value={ sector } 
+          ref={ sectorRef }
+          onChange={(e) => {
+            industryRef.current.value = '';
+            setIndustry('');
+            setSector(e.target.value)
+          }}>
           <option defaultValue="selected" value="">Any</option>
           {
             Object.keys(sectorOption).map((key, i) => {
@@ -55,50 +67,59 @@ const SearchForm = (props) => {
       </div>
       <div className='searchform__field'>
         <label htmlFor="industry">Industry</label>
-        <select name='Industry' id='industry' value={ industry } onChange={(e) => setIndustry(e.target.value)}>
-        <option defaultValue="ind_stocksonly">Any</option>
-        {
-          Object.keys(industryOption).map((key, i) => {
-            return <option key={i} value={key}>{industryOption[key]}</option>
-          })
-        }
-      </select>
+        <select 
+          name='Industry' 
+          id='industry' 
+          value={ industry } 
+          ref={ industryRef }
+          onChange={(e) => {
+            sectorRef.current.value = '';
+            setSector('');
+            setIndustry(e.target.value)
+          }}>
+          <option defaultValue="ind_stocksonly">Any</option>
+          {
+            Object.keys(industryOption).map((key, i) => {
+              return <option key={i} value={key}>{industryOption[key]}</option>
+            })
+          }
+        </select>
       </div>
       
       <div className='searchform__field'>
         <label htmlFor="dividend-yield">Dividend Yield</label>
         <select name='Dividend Yield' id='dividend-yield' value={ dividendYield } onChange={(e) => setDividendYield(e.target.value)}>
-        <option defaultValue=''>Any</option>
-        {
-          Object.keys(dividendYieldOption).map((key, i) => {
-            return <option key={i} value={key}>{dividendYieldOption[key]}</option>
-          })
-        }
-      </select>
+          <option defaultValue=''>Any</option>
+          {
+            Object.keys(dividendYieldOption).map((key, i) => {
+              return <option key={i} value={key}>{dividendYieldOption[key]}</option>
+            })
+          }
+        </select>
       </div>
 
       <div className='searchform__field'>
         <label htmlFor="market-cap">Market Cap</label>
         <select name='Market Cap' id='market-cap' value={ marketCap } onChange={(e) => setMarketCap(e.target.value)}>
-        <option defaultValue=''>Any</option>
-        {
-          Object.keys(marketCapOption).map((key, i) => {
-            return <option key={i} value={key}>{marketCapOption[key]}</option>
-          })
-        }
-      </select>
+          <option defaultValue=''>Any</option>
+          {
+            Object.keys(marketCapOption).map((key, i) => {
+              return <option key={i} value={key}>{marketCapOption[key]}</option>
+            })
+          }
+        </select>
       </div>
 
       <div className='searchform__field'>
         <label htmlFor="trailing-pe">Trailing P/E</label>
         <select name='Trailing P/E' id='trailing-pe' value={ trailingPE } onChange={(e) => setTrailingPE(e.target.value)}>
-        <option defaultValue=''>Any</option>
-        {
-          Object.keys(trailingPEOption).map((key, i) => {
-            return <option key={i} value={key}>{trailingPEOption[key]}</option>
-          })
-        }
-      </select>
+          <option defaultValue=''>Any</option>
+          {
+            Object.keys(trailingPEOption).map((key, i) => {
+              return <option key={i} value={key}>{trailingPEOption[key]}</option>
+            })
+          }
+        </select>
       </div>
 
       <div className='searchform_button-container'>
